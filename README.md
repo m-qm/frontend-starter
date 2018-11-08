@@ -27,66 +27,31 @@ User profile:
 # Client
 
 ## Routes
-
 - / 
     - shows the homepage
     - renders list of favorites updates (logged)
-    - /auth/signup
     - redirects to / if user logged in 
     - renders the signup form (with flash msg)
-    -  /auth/signup
+
+- /auth/signup
     - redirects to / if user logged in / not 2 fields 
     - body:
         - username
         - password
-    - /auth/login
+
+- /auth/login
     - redirects to / if user logged in
     - renders the login form (with flash msg)
-    - /auth/login
-    - redirects to / if user logged in
-    - body:
-        - username
-        - password
-    - /playlists
-    - renders the playlists list + the create form
-    - add button favorite
-    - /playlist/:id
-    - shows playlists information
-    - /user/:id/follow
-    - render user list
-    - body: 
-    - /user/create
-    - render form
-    - /user/create 
-    - redirect user // 
-    - body: 
-    - name
-    - date
-    - city
-    - description
-    - styles
-    - playlists
-- /user/me
-    - renders the user user + my playlists 
-- user/me/edit 
-    - redirect to /user/me
-- POST user/me/edit 
-    - redirect to /user/me
-    - body 
-    - name
-    - city
-    - styles
-    - about
-    - email
-    - playlist
-- user
 
 - /playlists - playlist list
 - /playlist/create - create a playlist
 - /playlist/favorite - favorite a playlist
 - /playlist/:id - playlist detail
-- /profile/me - my details and favorite playlists
+- /profile - my details and favorite playlists
+- /profile/edit
 - 404
+
+
 
 ## Pages
 
@@ -102,7 +67,7 @@ User profile:
 ## Components
 
 - Playlist Card component
-  - Props: playlist
+  - Props: 
   - State:
 - Search component
   - Props:
@@ -114,9 +79,10 @@ User profile:
   - Props:
   - State:
 - Profile
-  - Props: user
+  - Props:
   - State:
 - Edit Playlist Form
+- Edit Profile Form
 - Sign up Form
 
 
@@ -136,8 +102,7 @@ User profile:
   - Playlist.removeFavorite(id)   
 
 # Server
-## API routes:
-
+## API Endpoints/Backend Routes
 ### auth
 |Method|Route|Functionality|
 |---|---|---|
@@ -150,11 +115,11 @@ User profile:
 ### Playlist
 |Method|Route|Functionality|
 |---|---|---|
-|GET| api/myPlaylists | Get all playlists from logged in user (Id from session - Populate playlists id )|
+|GET| api/playlists | Get all playlists from logged in user (Id from session - Populate playlists id )|
 |POST| api/playlists| Create new playlist (Body: title)
 |PUT| api/playlists/:id| Edit playlist (Body id, title)
 |DELETE| api/playlists/:id| Delete playlist and all notes (Body: id playlist)|
-|POST|api/playlists/:id/new|Create new playlist (body: id, title, url)
+|GET|api/playlists/:id| Get a playlist (body: id, title, url)
 
 
 ### profile
@@ -162,35 +127,7 @@ User profile:
 |---|---|---|
 |GET | api/user/:id| Get info from currentUser in frontend| Profile
 |PUT|api/user/:id|Edit current user info|
-|GET | api/users | Get all users from da (Id from session - Populate playlists id )|
 
-
-## Models
-
-```javascript
-User
- - email: String
- - password: String
- - userMdBooks: [{
-   type: ObjectId, ref: mdBooks
- }]
-```
-
-```javascript
-MdBook
- - title: string
- - mdNotes: [{
-   type: ObjectId, ref: mdNotes
- }]
-```
-
-```javascript
-MdNotes
-- title: string
-- content: string
-```
-
-***
 
 ## Models
 
@@ -202,47 +139,18 @@ email - String // required & unique
 password - String // required
 favorites - [ObjectID<Playlist>]
 city - String // required
-styles - String
-followers - [ObjectID<Users>]
-following - [ObjectID<Users>]
-playlists - [ObjectID<Url>]
+styles - ENUM
 ```
 
 Playlist model
 
 ```
+owner: ObjectID ref user
 creator - ObjectID<User> // required
 title - String // required
-style - String
+style - ENUM
 url - String
 ```
-
-## API Endpoints/Backend Routes
-
-- GET /auth/me
-- POST /auth/signup
-  - body:
-    - username
-    - email
-    - password
-- POST /auth/login
-  - body:
-    - username
-    - password
-- POST /auth/logout
-  - body: (empty)
-- POST /user/me/favorite
-  - body:
-    - playlistId
-- DELETE /user/me/favorite/:playlistId
-  - body: (empty)
-- GET /playlist
-- POST /playlist
-  - body:
-    - title
-    - creator 
-    - style
-- GET /playlist/:id
 
 ## Links
 
@@ -257,7 +165,8 @@ The url to your repository and to your deployed project
 [Client repository Link](http://github.com)
 [Server repository Link](http://github.com)
 
-[Deploy Link](http://heroku.com)
+[Deploy Backend Link](http://heroku.com)
+[Deploy Frontend Link](xxxx)
 
 ### Slides
 

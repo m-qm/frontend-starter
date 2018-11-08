@@ -3,9 +3,14 @@ import { Route, Switch } from 'react-router-dom'
 
 import PrivateRoute from './components/PrivateRoute'
 import Navbar from './components/Navbar';
-import Private from './pages/Private';
+import Profile from './pages/Profile';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
+import Playlist from './pages/Playlist';
+import PlaylistCreate from './pages/PlaylistCreate';
+import PlaylistDetail from './pages/PlaylistDetail';
+import ProfileEdit from './pages/ProfileEdit';
+
 
 import AuthContext from './lib/authContext';
 class App extends Component {
@@ -19,7 +24,11 @@ class App extends Component {
             <Switch>
               <Route path="/signup" component={Signup} />
               <Route path="/login" component={Login} />              
-              <PrivateRoute path="/private" component={Private} />
+              <Route path="/playlist" component={Playlist} />
+              <Route path="/playlist/:id" component={PlaylistDetail} />
+              <PrivateRoute path="/playlist/create" component={PlaylistCreate} />
+              <PrivateRoute path="/profile" component={Profile} />
+              <PrivateRoute path="/profile/edit" component={ProfileEdit} />
             </Switch>
           </div>
         </div>

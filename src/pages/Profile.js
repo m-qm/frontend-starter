@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withAuth } from '../lib/authContext';
-class Private extends Component {
+class Profile extends Component {
   render() {
     return (
       <div>
@@ -11,4 +11,4 @@ class Private extends Component {
   }
 }
 
-export default withAuth(Private);
+export default withAuth(Profile);

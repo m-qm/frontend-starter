@@ -33,13 +33,13 @@ User profile:
     - redirects to / if user logged in 
     - renders the signup form (with flash msg)
 
-- /auth/signup
+- /signup
     - redirects to / if user logged in / not 2 fields 
     - body:
         - username
         - password
 
-- /auth/login
+- /login
     - redirects to / if user logged in
     - renders the login form (with flash msg)
 

@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import { withAuth } from '../lib/authContext';
-import Playlist from '../lib/playlistservice';
-
-
+import playlistService from '../lib/playlistservice';
 
 class PlaylistForm extends Component {
  
@@ -16,7 +14,7 @@ class PlaylistForm extends Component {
   handleFormSubmit = (event) => {
     event.preventDefault();
     const { title, link, styles } = this.state;
-    Playlist.create(this.state)
+    playlistService.create(this.state)
       .then(() => {
         console.log('heuyyyyyy')
       })

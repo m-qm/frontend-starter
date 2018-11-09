@@ -9,7 +9,7 @@ import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Playlist from './pages/Playlist';
 import PlaylistForm from './pages/PlaylistForm';
-import PlaylistDetail from './pages/PlaylistDetail';
+// import PlaylistDetail from './pages/PlaylistDetail';
 import ProfileEdit from './pages/ProfileEdit';
 
 
@@ -27,11 +27,11 @@ class App extends Component {
             <Switch>
               <Route path="/signup" component={Signup} />
               <Route path="/login" component={Login} />              
-              <PrivateRoute path="/playlist" component={Playlist} />
+              <PrivateRoute exact path="/playlist" component={Playlist} />
               {/* <PrivateRoute path="/playlist/:id" component={PlaylistDetail} /> */}
               <PrivateRoute path="/playlist/create" component={PlaylistForm} />
-              <PrivateRoute path="/profile" component={Profile} />
-              <PrivateRoute path="/edit" component={ProfileEdit} />
+              <PrivateRoute exact path="/profile" component={Profile} />
+              <PrivateRoute path="/profile/edit" component={ProfileEdit} />
             </Switch>
           </div>
         </div>

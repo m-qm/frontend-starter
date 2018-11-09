@@ -12,7 +12,7 @@ class PlaylistService {
 
   create(playlistService) {
     const { title, link, styles } = playlistService;
-    return this.playlist.post('/playlist/create', {title, link, styles})
+    return this.playlistService.post('/playlist/create', {title, link, styles})
       .then(({ data }) => data);
   }
 

@@ -33,7 +33,7 @@ class Playlist extends Component {
         <h1>Playlists</h1>
         { isLoading ? <h1>Loading....</h1> : playlists.map((playlist) => {
           return <div key={playlist._id}>
-            {playlist.title}
+            {playlist.title}{playlist.link}
       </div>
         })}
     </div>

@@ -1,0 +1,18 @@
+h1 {
+  font-size: 100px;
+}
+
+nav {
+  position: fixed;
+  justify-content: space-around;
+}
+
+button.navbar-toggler {
+  position: fixed;
+  background-color: black;
+
+}
+
+body {
+  font-size: 14em;
+}

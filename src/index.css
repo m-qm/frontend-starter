@@ -1,0 +1,13 @@
+header img {
+  height: 80px;
+}
+body {
+  height: 125vh;
+  background-image: url('./IMG.jpg');
+  background-size: cover;
+  font-family: sans-serif;
+}
+
+main {
+  color: white;
+}

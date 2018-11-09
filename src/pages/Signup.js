@@ -35,12 +35,13 @@ class Signup extends Component {
   render() {
     const { username, password } = this.state;
     return (
-      <div>
-        <form onSubmit={this.handleFormSubmit}>
+     <div class="container-fluid bg-3 text-center">    
+      <div class="row text-center justify-content-center pt-4">
+        <form className="col-lg-offset-2 col-lg-10 mx-3" onSubmit={this.handleFormSubmit}>
           <label>Username:</label>
-          <input type="text" name="username" value={username} onChange={this.handleChange}/>
+          <input className="form-control" type="text" name="username" value={username} onChange={this.handleChange}/>
           <label>Password:</label>
-          <input type="password" name="password" value={password} onChange={this.handleChange} />
+          <input className="form-control" type="password" name="password" value={password} onChange={this.handleChange} />
           <input type="submit" value="Signup" />
         </form>
 
@@ -48,6 +49,10 @@ class Signup extends Component {
           <Link to={"/login"}> Login</Link>
         </p>
       </div>
+       </div>
+
+            
+
     )
   }
 }

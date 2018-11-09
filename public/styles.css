@@ -1,5 +1,6 @@
 h1 {
   font-size: 100px;
+
 }
 
 nav {
@@ -15,4 +16,5 @@ button.navbar-toggler {
 
 body {
   font-size: 14em;
+  font-family: 'Dhurjati';
 }

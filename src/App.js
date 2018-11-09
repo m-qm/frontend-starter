@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
+import * as ReactBootstrap from 'react-bootstrap'
 
 import PrivateRoute from './components/PrivateRoute';
 import Navigation from './components/Navbar';
@@ -20,7 +21,6 @@ class App extends Component {
       
       <AuthContext>
         <div className="container">
-        
             <Navigation />
           <div>
             <h1>mTrap</h1>

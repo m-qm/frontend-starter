@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { withAuth } from '../lib/authContext';
+import {Nav, Navbar, NavItem, NavDropdown, Button } from 'react-bootstrap';
 
 
 class Navigation extends Component {
@@ -18,40 +19,39 @@ class Navigation extends Component {
   }
   render() {
     const { isLogged } = this.props;
-    const collapsed = this.state.collapsed;
-    const classOne = collapsed ? 'collapse navbar-collapse' : 'collapse navbar-collapse show';
-    const classTwo = collapsed ? 'navbar-toggler navbar-toggler-right collapsed' : 'navbar-toggler navbar-toggler-right';
     return (
-    <nav className="navbar">
-      <h1 className="navbar-brand" href="/">mTrap</h1>
-      <button  onClick={this.toggleNavbar} className={`${classTwo}`} type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon" />
+      <Navbar inverse collapseOnSelect>
+        <Navbar.Header >
+        <Navbar.Brand>
+        <a href="/">mTrap</a> 
+        </Navbar.Brand>
+        <Navbar.Toggle />
+        </Navbar.Header>
+        <Navbar.Collapse>
+        <Nav>
+          <NavItem>
+            <Link to="/">Home</Link>
+          </NavItem>
+          <NavItem>
+            <Link to="/about">About</Link>
+          </NavItem>
+              {!isLogged ? 
+          
+              <NavItem>
+                <Link to="/login">Login</Link>
+              </NavItem>
+         
+            :
+            <Nav>
+              <NavItem>  
+                <Button className="button-black" onClick={this.props.logout}>Logout</Button>
+              </NavItem>    
+            </Nav>
+            }
+        </Nav>
+        </Navbar.Collapse>
+      </Navbar>)
 
-        </button>
-        <div className={`${classOne}`} id="navbarResponsive">
-          <ul className="navbar-nav ml-auto">
-            <li className="nav-item active">
-
-              <Link className="nav-link" to="/">Home</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/about">About</Link>
-            </li>
-          </ul>
-        <div>
-          {isLogged ? <div>
-            <button className="button-black" onClick={this.props.logout}>Logout</button>
-        </div>
-        :
-          <ul>
-            <li><Link to='/profile'>Profile</Link></li>
-            <li><Link to='/playlist'>Playlists</Link></li>
-          </ul>
-      }
-        </div>
-      </div>
-  </nav>
-    );
   }
 }
 

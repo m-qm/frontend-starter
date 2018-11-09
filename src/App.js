@@ -32,7 +32,7 @@ class App extends Component {
               <Route path="/playlist/:id" component={PlaylistDetail} />
               <PrivateRoute path="/playlist/create" component={PlaylistCreate} />
               <PrivateRoute path="/profile" component={Profile} />
-              <PrivateRoute path="profile/edit" component={ProfileEdit} />
+              <PrivateRoute path="/profile/edit" component={ProfileEdit} />
             </Switch>
           </div>
           <PlaylistDetail />

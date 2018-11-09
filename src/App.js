@@ -8,10 +8,9 @@ import Profile from './pages/Profile';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Playlist from './pages/Playlist';
-import PlaylistCreate from './pages/PlaylistCreate';
+import PlaylistForm from './pages/PlaylistForm';
 import PlaylistDetail from './pages/PlaylistDetail';
 import ProfileEdit from './pages/ProfileEdit';
-
 
 
 import AuthContext from './lib/authContext';
@@ -30,12 +29,11 @@ class App extends Component {
               <Route path="/login" component={Login} />              
               <Route path="/playlist" component={Playlist} />
               <Route path="/playlist/:id" component={PlaylistDetail} />
-              <PrivateRoute path="/playlist/create" component={PlaylistCreate} />
+              <PrivateRoute path="/create" component={PlaylistForm} />
               <PrivateRoute path="/profile" component={Profile} />
-              <PrivateRoute path="profile/edit" component={ProfileEdit} />
+              <PrivateRoute path="/edit" component={ProfileEdit} />
             </Switch>
           </div>
-          <PlaylistDetail />
         </div>
       </AuthContext>
     )

@@ -22,9 +22,8 @@ class Navigation extends Component {
     const classOne = collapsed ? 'collapse navbar-collapse' : 'collapse navbar-collapse show';
     const classTwo = collapsed ? 'navbar-toggler navbar-toggler-right collapsed' : 'navbar-toggler navbar-toggler-right';
     return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark transparent-nav">
-    <div className="container">
-      <h1 className="navbar-brand" href="#">mTrap</h1>
+    <nav className="navbar">
+      <h1 className="navbar-brand" href="/">mTrap</h1>
       <button  onClick={this.toggleNavbar} className={`${classTwo}`} type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon" />
 
@@ -51,7 +50,6 @@ class Navigation extends Component {
       }
         </div>
       </div>
-    </div>
   </nav>
     );
   }

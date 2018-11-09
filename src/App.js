@@ -27,9 +27,9 @@ class App extends Component {
             <Switch>
               <Route path="/signup" component={Signup} />
               <Route path="/login" component={Login} />              
-              <Route path="/playlist" component={Playlist} />
-              <Route path="/playlist/:id" component={PlaylistDetail} />
-              <PrivateRoute path="/create" component={PlaylistForm} />
+              <PrivateRoute path="/playlist" component={Playlist} />
+              {/* <PrivateRoute path="/playlist/:id" component={PlaylistDetail} /> */}
+              <PrivateRoute path="/playlist/create" component={PlaylistForm} />
               <PrivateRoute path="/profile" component={Profile} />
               <PrivateRoute path="/edit" component={ProfileEdit} />
             </Switch>

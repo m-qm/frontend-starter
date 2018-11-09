@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+
 import auth from '../lib/auth-service';
 import { withAuth } from '../lib/authContext';
+
 class Login extends Component {
   state = {
     username: "",
@@ -34,9 +37,12 @@ class Login extends Component {
           <input className="form-control" type="text" name="username" value={username} onChange={this.handleChange}/>
           <label>Password:</label>
           <input className="form-control"  type="password" name="password" value={password} onChange={this.handleChange} />
-          <button class="btn btn-outline-success" type="submit" value="login">Log in</button>
+          <button class="btn btn-outline" type="submit" value="login">Log in</button>
         </form>
         </div>
+        <p>Not registered?
+          <Link to={"/signup"}>Sign up</Link>
+        </p>
         </div>
     )
   }

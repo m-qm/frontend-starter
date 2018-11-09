@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import playlistService from '../lib/playlistservice';
+import Card from '../components/Card';
 
 class Playlist extends Component {
 
@@ -17,14 +18,16 @@ class Playlist extends Component {
       isLoading: true,
     });
 
-  playlistService.listPlaylist()
-  .then((result) => {
-    this.setState({
-      playlists: result,
-      isLoading: false
+    playlistService.listPlaylist()
+    .then((result) => {
+      this.setState({
+        playlists: result,
+        isLoading: false
+      })
     })
-  })
-}
+  }
+
+  
 
   render() {
     const { playlists, isLoading } = this.state;
@@ -32,9 +35,7 @@ class Playlist extends Component {
       <div>
         <h1>Playlists</h1>
         { isLoading ? <h1>Loading....</h1> : playlists.map((playlist) => {
-          return <div key={playlist._id}>
-            {playlist.title}{playlist.link}
-      </div>
+          return <Card key={playlist._id} playlist={playlist} />
         })}
     </div>
     );

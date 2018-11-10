@@ -1,14 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
-
-export default class EditProfile extends Component {
- 
+export default class ProfileCreate extends Component {
   state = {
     email: "",
     styles: [],
     city:"",
     description:"",
-    styles: []
   }
 
   handleFormSubmit = (event) => {
@@ -36,4 +33,3 @@ export default class EditProfile extends Component {
     )
   }
 }
-

@@ -10,6 +10,7 @@ import Login from './pages/Login';
 import Playlist from './pages/Playlist';
 import PlaylistForm from './pages/PlaylistForm';
 // import PlaylistDetail from './pages/PlaylistDetail';
+import ProfileCreate from './pages/ProfileCreate';
 import ProfileEdit from './pages/ProfileEdit';
 
 
@@ -31,6 +32,7 @@ class App extends Component {
               {/* <PrivateRoute path="/playlist/:id" component={PlaylistDetail} /> */}
               <PrivateRoute path="/playlist/create" component={PlaylistForm} />
               <PrivateRoute exact path="/profile" component={Profile} />
+              <PrivateRoute path="/profile/create" component={ProfileCreate} />
               <PrivateRoute path="/profile/edit" component={ProfileEdit} />
             </Switch>
           </div>

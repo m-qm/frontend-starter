@@ -1,20 +1,58 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
+import EditProject from './EditProject';
 
 class PlaylistDetail extends Component {
-  render() {
+   constructor(props){
+    super(props);
+    this.state = {};
+  }
 
+ getSingleProject = () => {
+    const { params } = this.props.match;
+    axios.get(`http://localhost:5000/api/m-port/${params.id}`)
+    .then( responseFromApi =>{
+      const theProject = responseFromApi.data;
+      this.setState(theProject);
+    })
+    .catch((err)=>{
+        console.log(err)
+    })
+  }
 
-    return (
+  renderEditForm = () => {
+    if(!this.state.title){
+      this.getSingleProject();
+    } else {
+      return <EditProject theProject={this.state} getTheProject={this.getSingleProject} />
+    }
+  }
+
+// DELETE PROJECT:
+  deleteProject = (id) => {
+    const { params } = this.props.match;
+    axios.delete(`http://localhost:5000/api/projects/${params.id}`)
+    .then( responseFromApi =>{
+        console.log(responseFromApi);
+        this.props.history.push('/projects'); // !!!         
+    })
+    .catch((err)=>{
+        console.log(err)
+    })
+  }
+
+  render(){
+    return(
       <div>
-          <ul className="col-md-4 list-group">
-              <li class="vid-container">
-                <iframe className="iframe" width="100%" height="100%" src="https://www.youtube.com/embed/h234EqxyCs4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-              </li>
-            </ul>
-          </div>
+        <h1>{this.state.title}</h1>
+        <p>{this.state.description}</p>
+        <div>{this.renderEditForm()} </div>
+        <button onClick={() => this.deleteProject(this.state._id)}>Delete project</button>
+        <Link to={'/projects'}>Back to projects</Link>
+      </div>
     )
   }
 }
 
-
-export default PlaylistDetail;
+export default ProjectDetails;

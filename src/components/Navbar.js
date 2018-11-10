@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { withAuth } from '../lib/authContext';
-import {Nav, Navbar, NavItem, NavDropdown, Button } from 'react-bootstrap';
+import {Nav, Navbar, NavItem, Button } from 'react-bootstrap';
 
 
 class Navigation extends Component {
@@ -23,7 +23,7 @@ class Navigation extends Component {
       <Navbar inverse collapseOnSelect>
         <Navbar.Header >
         <Navbar.Brand>
-        <a href="/">mTrap</a> 
+        <h4 href="/">mTrap</h4> 
         </Navbar.Brand>
         <Navbar.Toggle />
         </Navbar.Header>
@@ -39,12 +39,17 @@ class Navigation extends Component {
           
               <NavItem>
                 <Link to="/login">Login</Link>
-              </NavItem>
-         
+              </NavItem >         
             :
             <Nav>
+              <NavItem> 
+            <Link to="/playlist/create">Create</Link>
+              </NavItem>    
               <NavItem>  
-                <Button className="button-black" onClick={this.props.logout}>Logout</Button>
+                <Link to="/playlist">Playlists</Link>
+              </NavItem>   
+              <NavItem>  
+                <Button className="btn-black-inline" onClick={this.props.logout}>Logout</Button>
               </NavItem>    
             </Nav>
             }

@@ -14,7 +14,7 @@ class PlaylistForm extends Component {
 
   handleFormSubmit = (event) => {
     event.preventDefault();
-    const { title, link, styles } = this.state;
+    //const { title, link, styles } = this.state;
     playlistService.create(this.state)
       .then(() => {
         console.log('heuyyyyyy')

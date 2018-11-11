@@ -10,7 +10,7 @@ export default class ProfileCreate extends Component {
 
   handleFormSubmit = (event) => {
     event.preventDefault();
-    const { email, city, description } = this.state
+    //const { email, city, description } = this.state
 
   }
 

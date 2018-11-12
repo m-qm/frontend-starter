@@ -8,9 +8,9 @@ class PlaylistDetail extends Component {
     this.state = {};
   }
 
-  componentDidMount(){
-      this.getSingleProject();
-  }
+  // componentDidMount(){
+  //     this.getSingleProject();
+  // }
 
   getSinglePlaylist = () => {
 

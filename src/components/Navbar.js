@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { withAuth } from '../lib/authContext';
 import {Nav, Navbar, NavItem, Button } from 'react-bootstrap';
 
@@ -21,6 +21,21 @@ class Navigation extends Component {
   handleClickHome = () => {
     this.props.history.push("/home")
   }
+  handleClickPlaylist = () => {
+    this.props.history.push("/playlist")
+  }
+  handleClickLogin = () => {
+    this.props.history.push("/login")
+  }
+  handleClickCreate = () => {
+    this.props.history.push("/playlist/create")
+  }
+  handleClickProfile = () => {
+    this.props.history.push("/profile")
+  }
+  handleClickProfileEdit = () => {
+    this.props.history.push("/profile/edit")
+  }
 
   render() {
     const { isLogged } = this.props;
@@ -37,30 +52,28 @@ class Navigation extends Component {
           <NavItem onClick={this.handleClickHome}>
             Home
           </NavItem>
-          <NavItem>
-            {/* <Link to="/about">About</Link> */}
+            <NavItem onClick={this.handleClickPlaylist}> Playlist
           </NavItem>
               {!isLogged ? 
-          
-              <NavItem>
-                {/* <Link to="/login">Login</Link> */}
+          <NavItem onClick={this.handleClickLogin}> Login
               </NavItem >         
             :
             <Nav>
-              <NavItem> 
-                {/* <Link to="/playlist/create">Create</Link> */}
-              </NavItem>    
-              <NavItem>  
-                {/* <Link to="/playlist">Playlists</Link> */}
-              </NavItem>   
-              <NavItem>  
+              <NavItem onClick={this.handleClickCreate}> Create
+                </NavItem>    
+              <NavItem onClick={this.handleClickProfile}> Profile
+                </NavItem>   
+              <NavItem onClick={this.handleClickEditProfile}> Profile Edit
+                </NavItem>   
+              <NavItem>
                 <Button className="btn-black-inline" onClick={this.props.logout}>Logout</Button>
               </NavItem>    
             </Nav>
             }
         </Nav>
         </Navbar.Collapse>
-      </Navbar>)
+      </Navbar>
+      )
 
   }
 }

@@ -17,7 +17,7 @@ class Login extends Component {
     auth.login({ username, password })
     .then( (user) => {
       this.props.setUser(user)
-      this.props.history.push('/private'); 
+      this.props.history.push('/playlist'); 
     })
     .catch( error => console.log(error) )
   }
@@ -30,14 +30,14 @@ class Login extends Component {
   render() {
     const { username, password } = this.state;
     return (
-      <div className="container-fluid bg-3 text-center">    
+      <div className="container bg-3 text-center">    
       <div className="row text-center justify-content-center pt-4">
         <form className="col-lg-offset-2 col-lg-10 mx-3" onSubmit={this.handleFormSubmit}>
           <label>Username:</label>
           <input className="form-control" type="text" name="username" value={username} onChange={this.handleChange}/>
           <label>Password:</label>
-          <input className="form-control"  type="password" name="password" value={password} onChange={this.handleChange} />
-          <button class="btn btn-outline" type="submit" value="login">Log in</button>
+          <input className="form-control"  type="password" name="password" value={password} onChange={this.handleChange}/>
+          <button className="btn btn-outline" type="submit" value="login">Log in</button>
         </form>
         </div>
         <p>Not registered?

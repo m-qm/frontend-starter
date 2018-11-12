@@ -19,7 +19,7 @@ class PlaylistForm extends Component {
       .then(() => {
         console.log('heuyyyyyy')
       })
-
+      .catch( error => console.log(error))
   }
 
   handleInputChange = (event) => {  
@@ -30,7 +30,9 @@ class PlaylistForm extends Component {
   render() {
     const { title, link, styles } = this.state;
     return (
+
       <div className="form-group">
+      <h1>Hola</h1>
         <form onSubmit={this.handleFormSubmit}>
           <input type="text" value={title} name="title" placeholder="Your title" onChange={this.handleInputChange} />
           <input type="text" value={link} name="link" placeholder="Your link" onChange={this.handleInputChange}/>

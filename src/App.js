@@ -22,15 +22,16 @@ class App extends Component {
     return (
       
       <AuthContext>
-        <div className="container">
             <Navigation />
           <div>
+          <div className="container">
             <h1>mTrap</h1>
+          </div>
             <Switch>
               <Route path="/signup" component={Signup} />
               <Route path="/login" component={Login} />              
               <PrivateRoute exact path="/playlist" component={Playlist} />
-              {/* <PrivateRoute path="/playlist/:id" component={PlaylistDetail} /> */}
+              <PrivateRoute path="/playlist/:id" component={PlaylistDetail} />
               <PrivateRoute path="/playlist/create" component={PlaylistForm} />
               <PrivateRoute exact path="/profile" component={Profile} />
               <PrivateRoute path="/profile/create" component={ProfileCreate} />
@@ -39,7 +40,6 @@ class App extends Component {
 
             </Switch>
           </div>
-        </div>
       </AuthContext>
     )
   }

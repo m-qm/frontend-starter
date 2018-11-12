@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import { Button } from 'react-bootstrap';
-import axios from 'axios';
 import { withAuth } from '../lib/authContext';
-import { Link } from 'react-router-dom';
 import playlistService from '../lib/playlistservice';
 
 class Card extends Component {
@@ -29,17 +27,17 @@ class Card extends Component {
         console.log(error)
       })
   }
-
+ 
 
   render() {
     const { playlist } = this.props;
     const { isLogged } = this.props;
     return (
-      <div>
+      <div className="card">
         <h2> 
           {playlist.title}
         </h2> 
-         <h2> 
+        <h2> 
           {playlist.id}
         </h2> 
         <div dangerouslySetInnerHTML={this.iframe()}/>

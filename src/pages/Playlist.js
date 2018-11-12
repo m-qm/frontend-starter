@@ -36,7 +36,7 @@ class Playlist extends Component {
   render() {
     const { playlists, isLoading } = this.state;
     return (
-      <div>
+      <div className="container">
         <h1>Playlists</h1>
         { isLoading ? <h1>Loading....</h1> : playlists.map((playlist) => {
           return <Card key={playlist._id} playlist={playlist} onDelete={this.handleDelete} />

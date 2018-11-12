@@ -40,7 +40,7 @@ class Navigation extends Component {
   render() {
     const { isLogged } = this.props;
     return (
-      <Navbar inverse collapseOnSelect>
+      <Navbar className="header navbar navbar-expand-md navbar-light bg-faded">
         <Navbar.Header >
         <Navbar.Brand>
         <h4 href="/">mTrap</h4> 
@@ -63,7 +63,7 @@ class Navigation extends Component {
                 </NavItem>    
               <NavItem onClick={this.handleClickProfile}> Profile
                 </NavItem>   
-              <NavItem onClick={this.handleClickEditProfile}> Profile Edit
+              <NavItem onClick={this.handleClickProfileEdit}> Profile Edit
                 </NavItem>   
               <NavItem>
                 <Button className="btn-black-inline" onClick={this.props.logout}>Logout</Button>

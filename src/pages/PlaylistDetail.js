@@ -1,46 +1,29 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import EditProject from './EditProject';
+import EditPlaylist from './EditPlaylist';
 
 class PlaylistDetail extends Component {
-   constructor(props){
+  constructor(props){
     super(props);
     this.state = {};
   }
 
- getSingleProject = () => {
-    const { params } = this.props.match;
-    axios.get(`http://localhost:5000/api/m-port/${params.id}`)
-    .then( responseFromApi =>{
-      const theProject = responseFromApi.data;
-      this.setState(theProject);
-    })
-    .catch((err)=>{
-        console.log(err)
-    })
+  componentDidMount(){
+      this.getSingleProject();
+  }
+
+  getSinglePlaylist = () => {
+
   }
 
   renderEditForm = () => {
-    if(!this.state.title){
-      this.getSingleProject();
-    } else {
-      return <EditProject theProject={this.state} getTheProject={this.getSingleProject} />
-    }
   }
 
-// DELETE PROJECT:
-  deleteProject = (id) => {
-    const { params } = this.props.match;
-    axios.delete(`http://localhost:5000/api/projects/${params.id}`)
-    .then( responseFromApi =>{
-        console.log(responseFromApi);
-        this.props.history.push('/projects'); // !!!         
-    })
-    .catch((err)=>{
-        console.log(err)
-    })
-  }
+// DELETE PLAYLIST:
+//   deletePlaylist = (id) => {
+//     const { params } = this.props.match;
+// +  }
 
   render(){
     return(
@@ -48,11 +31,11 @@ class PlaylistDetail extends Component {
         <h1>{this.state.title}</h1>
         <p>{this.state.description}</p>
         <div>{this.renderEditForm()} </div>
-        <button onClick={() => this.deleteProject(this.state._id)}>Delete project</button>
-        <Link to={'/projects'}>Back to projects</Link>
+        <button onClick={() => this.deletePlaylist(this.state._id)}>Delete playlist</button>
+        <Link to={'/playlist'}>Back to playlist</Link>
       </div>
     )
   }
 }
 
-export default ProjectDetails;
+export default PlaylistDetail;

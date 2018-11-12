@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 
-class EditProfile extends Component {
- 
-  state = {
-    email: "",
-    styles: [],
-    city:"",
-    description:"",
-    styles: []
+class EditPlaylist extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+        title: this.props.thePlaylist.title, 
+        description: this.props.thePlaylist.description,
+        city: this.props.thePlaylist.city,
+        styles: this.props.thePlaylist.styles,
+
+    }
   }
 
   handleFormSubmit = (event) => {
@@ -26,7 +28,9 @@ class EditProfile extends Component {
     return (
       <div>
         <form onSubmit={this.handleFormSubmit}>
+        <label>Email:</label>
           <input type="text" value={email} name="email" placeholder="Your email" onChange={this.handleInputChange} />
+        <label>Description:</label>
           <input type="text" value={city} name="city" placeholder="Your city" onChange={this.handleInputChange}/>
           <textarea class="textarea" name="description" value={description} rows="5" cols="32" placeholder="Tell us about yourself..." onChange={this.handleInputChange}/>
           <input type="submit" value="Submit"/>
@@ -36,4 +40,4 @@ class EditProfile extends Component {
   }
 }
 
-export default EditProfile;
+export default EditPlaylist;

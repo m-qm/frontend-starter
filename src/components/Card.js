@@ -4,8 +4,6 @@ import axios from 'axios';
 import { withAuth } from '../lib/authContext';
 import { Link } from 'react-router-dom';
 
-
-
 class Card extends Component {
 
   state = {

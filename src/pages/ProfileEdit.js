@@ -15,7 +15,7 @@ export default class ProfileEdit extends Component {
     auth.update({email, styles, city, description}) 
     .then((user) => {
       console.log(user)
-      // this.props.setUser(user)
+      this.props.setUser(user)
     })
     .catch( error => console.log(error))
   }

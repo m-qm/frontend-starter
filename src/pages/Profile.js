@@ -4,7 +4,7 @@ import auth from '../lib/auth-service';
 class Profile extends Component {
   
   state = {
-    user: '',
+    city: '',
     isLoading: true,
   }
 
@@ -34,7 +34,7 @@ class Profile extends Component {
         <h1>Welcome {this.props.user.username}</h1>        
         {/* { isLoading ? <h1>Loading....</h1> : <div>{profile}</div>
         } */}
-        <h2>{this.props.user.city}</h2>
+        <h2>{city}</h2>
       </div>
     )
   }

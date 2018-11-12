@@ -15,6 +15,17 @@ class Card extends Component {
     return { __html: playlist.link }
   }
 
+  getSinglePlaylist = (e) => {
+    const id = this.props.playlist._id
+    playlistService.listOnePlaylist(id)
+      .then((result) => {
+        this.setState({
+          playlist: result,
+          isLoading: false
+        })
+      })
+  }
+
   deletePlaylist = (e) => {
     const id = this.props.playlist._id
     console.log(id);
@@ -27,7 +38,7 @@ class Card extends Component {
         console.log(error)
       })
   }
- 
+
 
   render() {
     const { playlist } = this.props;
@@ -39,10 +50,13 @@ class Card extends Component {
         </h2> 
         <h2> 
           {playlist.id}
+
         </h2> 
+        <h1>{playlist._id}</h1>
         <div dangerouslySetInnerHTML={this.iframe()}/>
         <form action="playlist/:id/delete" method="post">
           <Button className="btn-black-inline" onClick={this.deletePlaylist}>Delete</Button>
+          <Button onClick={this.getSinglePlaylist}>Playlist Detail</Button>
         </form>
       </div>
     )

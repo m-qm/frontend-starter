@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import playlistService from '../lib/playlistservice';
 import Card from '../components/Card';
-
 class Playlist extends Component {
 
   state = {
@@ -30,8 +29,6 @@ class Playlist extends Component {
   handleDelete = () => {
     this.update()
   }
-
-  
 
   render() {
     const { playlists, isLoading } = this.state;

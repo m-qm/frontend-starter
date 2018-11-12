@@ -21,6 +21,11 @@ class PlaylistService {
       .then(({ data }) => data);
   }
 
+  listOnePlaylist(id) {
+    return this.playlistService.get(`/playlistdetail/${id}`)
+      .then(({ data }) => data);
+  }
+
   edit(playlist) {
     return this.playlistService.put(`/playlist`)
       .then(({ data }) => data);

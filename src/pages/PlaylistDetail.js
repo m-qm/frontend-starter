@@ -1,35 +1,47 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import EditPlaylist from './EditPlaylist';
+import playlistService from '../lib/playlistservice';
+// import EditPlaylist from './EditPlaylist';
 
 class PlaylistDetail extends Component {
   constructor(props){
     super(props);
-    this.state = {};
+    this.state = {
+      playlist: "",
+      id: ""
+  }
+    }
+
+
+  componentDidMount(){
+      this.getSingleProject();
   }
 
-  // componentDidMount(){
-  //     this.getSingleProject();
-  // }
+  update = () => {
+    this.setState({
+      isLoading: true,
+    });
 
-  getSinglePlaylist = () => {
-
+    playlistService.findOnePlaylist()
+      .then((result) => {
+        this.setState({
+          playlists: result,
+          isLoading: false
+        })
+      })
   }
 
-  renderEditForm = () => {
+  handleDelete = () => {
+    this.update()
   }
 
-// DELETE PLAYLIST:
-//   deletePlaylist = (id) => {
-//     const { params } = this.props.match;
-// +  }
 
   render(){
+    const { playlist } = this.state;
+
     return(
       <div>
-        <h1>{this.state.title}</h1>
-        <p>{this.state.description}</p>
-        <div>{this.renderEditForm()} </div>
+        <h1> Hey </h1>
         <button onClick={() => this.deletePlaylist(this.state._id)}>Delete playlist</button>
         <Link to={'/playlist'}>Back to playlist</Link>
       </div>

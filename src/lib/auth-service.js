@@ -26,7 +26,7 @@ class Auth {
   }
 
   me() {
-    return this.auth.get('/auth/me')
+    return this.auth.get('/auth/profile')
     .then(response => response.data)
   }
 

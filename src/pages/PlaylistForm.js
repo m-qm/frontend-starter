@@ -30,7 +30,7 @@ class PlaylistForm extends Component {
   render() {
     const { title, link, styles } = this.state;
     return (
-      <div>
+      <div className="form-group">
         <form onSubmit={this.handleFormSubmit}>
           <input type="text" value={title} name="title" placeholder="Your title" onChange={this.handleInputChange} />
           <input type="text" value={link} name="link" placeholder="Your link" onChange={this.handleInputChange}/>

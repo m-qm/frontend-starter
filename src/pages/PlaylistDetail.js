@@ -1,20 +1,40 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import EditPlaylist from './EditPlaylist';
 
 class PlaylistDetail extends Component {
-  render() {
+  constructor(props){
+    super(props);
+    this.state = {};
+  }
 
+  // componentDidMount(){
+  //     this.getSingleProject();
+  // }
 
-    return (
+  getSinglePlaylist = () => {
+
+  }
+
+  renderEditForm = () => {
+  }
+
+// DELETE PLAYLIST:
+//   deletePlaylist = (id) => {
+//     const { params } = this.props.match;
+// +  }
+
+  render(){
+    return(
       <div>
-          <ul className="col-md-4 list-group">
-              <li class="vid-container">
-                <iframe className="iframe" width="100%" height="100%" src="https://www.youtube.com/embed/h234EqxyCs4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-              </li>
-            </ul>
-          </div>
+        <h1>{this.state.title}</h1>
+        <p>{this.state.description}</p>
+        <div>{this.renderEditForm()} </div>
+        <button onClick={() => this.deletePlaylist(this.state._id)}>Delete playlist</button>
+        <Link to={'/playlist'}>Back to playlist</Link>
+      </div>
     )
   }
 }
-
 
 export default PlaylistDetail;

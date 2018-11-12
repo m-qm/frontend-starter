@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
+import * as ReactBootstrap from 'react-bootstrap'
 
 import PrivateRoute from './components/PrivateRoute';
 import Navigation from './components/Navbar';
@@ -9,6 +10,7 @@ import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Playlist from './pages/Playlist';
 import PlaylistForm from './pages/PlaylistForm';
+import PlaylistDetail from './pages/PlaylistDetail';
 // import PlaylistDetail from './pages/PlaylistDetail';
 import ProfileCreate from './pages/ProfileCreate';
 import ProfileEdit from './pages/ProfileEdit';
@@ -21,7 +23,6 @@ class App extends Component {
       
       <AuthContext>
         <div className="container">
-        
             <Navigation />
           <div>
             <h1>mTrap</h1>
@@ -34,6 +35,8 @@ class App extends Component {
               <PrivateRoute exact path="/profile" component={Profile} />
               <PrivateRoute path="/profile/create" component={ProfileCreate} />
               <PrivateRoute path="/profile/edit" component={ProfileEdit} />
+              <PrivateRoute path="/playlistdetail" component={PlaylistDetail} />
+
             </Switch>
           </div>
         </div>

@@ -5,7 +5,8 @@ body {
   height: 125vh;
   background-image: url('./IMG.jpg');
   background-size: cover;
-  font-family: sans-serif;
+  font-family: 'Dhurjati';
+
 }
 
 main {

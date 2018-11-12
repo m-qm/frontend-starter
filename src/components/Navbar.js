@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { withAuth } from '../lib/authContext';
+import {Nav, Navbar, NavItem, Button } from 'react-bootstrap';
 
 
 class Navigation extends Component {
@@ -16,43 +17,65 @@ class Navigation extends Component {
       collapsed: !this.state.collapsed,
     });
   }
+
+  handleClickHome = () => {
+    this.props.history.push("/home")
+  }
+  handleClickPlaylist = () => {
+    this.props.history.push("/playlist")
+  }
+  handleClickLogin = () => {
+    this.props.history.push("/login")
+  }
+  handleClickCreate = () => {
+    this.props.history.push("/playlist/create")
+  }
+  handleClickProfile = () => {
+    this.props.history.push("/profile")
+  }
+  handleClickProfileEdit = () => {
+    this.props.history.push("/profile/edit")
+  }
+
   render() {
     const { isLogged } = this.props;
-    const collapsed = this.state.collapsed;
-    const classOne = collapsed ? 'collapse navbar-collapse' : 'collapse navbar-collapse show';
-    const classTwo = collapsed ? 'navbar-toggler navbar-toggler-right collapsed' : 'navbar-toggler navbar-toggler-right';
     return (
-    <nav className="navbar">
-      <h1 className="navbar-brand" href="/">mTrap</h1>
-      <button  onClick={this.toggleNavbar} className={`${classTwo}`} type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon" />
+      <Navbar inverse collapseOnSelect>
+        <Navbar.Header >
+        <Navbar.Brand>
+        <h4 href="/">mTrap</h4> 
+        </Navbar.Brand>
+        <Navbar.Toggle />
+        </Navbar.Header>
+        <Navbar.Collapse>
+        <Nav>
+          <NavItem onClick={this.handleClickHome}>
+            Home
+          </NavItem>
+            <NavItem onClick={this.handleClickPlaylist}> Playlist
+          </NavItem>
+              {!isLogged ? 
+          <NavItem onClick={this.handleClickLogin}> Login
+              </NavItem >         
+            :
+            <Nav>
+              <NavItem onClick={this.handleClickCreate}> Create
+                </NavItem>    
+              <NavItem onClick={this.handleClickProfile}> Profile
+                </NavItem>   
+              <NavItem onClick={this.handleClickEditProfile}> Profile Edit
+                </NavItem>   
+              <NavItem>
+                <Button className="btn-black-inline" onClick={this.props.logout}>Logout</Button>
+              </NavItem>    
+            </Nav>
+            }
+        </Nav>
+        </Navbar.Collapse>
+      </Navbar>
+      )
 
-        </button>
-        <div className={`${classOne}`} id="navbarResponsive">
-          <ul className="navbar-nav ml-auto">
-            <li className="nav-item active">
-
-              <Link className="nav-link" to="/">Home</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/about">About</Link>
-            </li>
-          </ul>
-        <div>
-          {isLogged ? <div>
-            <button className="button-black" onClick={this.props.logout}>Logout</button>
-        </div>
-        :
-          <ul>
-            <li><Link to='/profile'>Profile</Link></li>
-            <li><Link to='/playlist'>Playlists</Link></li>
-          </ul>
-      }
-        </div>
-      </div>
-  </nav>
-    );
   }
 }
 
-export default withAuth(Navigation);
+export default withAuth(withRouter(Navigation));

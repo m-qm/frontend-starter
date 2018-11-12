@@ -1,18 +1,23 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import auth from '../lib/auth-service'
 
-class EditProfile extends Component {
- 
+export default class PlaylistEdit extends Component {
   state = {
-    email: "",
+    owner: "",
+    title: "",
+    link: "",
     styles: [],
-    city:"",
-    description:"",
   }
-
+  
   handleFormSubmit = (event) => {
     event.preventDefault();
-    //const { email, city, description } = this.state
-
+    const { email, city, description, styles } = this.state
+    auth.update({email, styles, city, description}) 
+    .then((user) => {
+      console.log(user)
+      // this.props.setUser(user)
+    })
+    .catch( error => console.log(error))
   }
 
   handleInputChange = (event) => {  
@@ -34,5 +39,3 @@ class EditProfile extends Component {
     )
   }
 }
-
-export default EditProfile;

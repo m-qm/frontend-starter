@@ -29,6 +29,11 @@ class Auth {
     return this.auth.get('/auth/me')
     .then(response => response.data)
   }
+
+  update(user) {
+    return this.auth.put('/auth/profile/edit', user)
+    .then(response => response.data)
+  }
 }
 
 const auth = new Auth();

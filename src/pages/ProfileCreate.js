@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 class EditProfile extends Component {
  
@@ -7,12 +7,11 @@ class EditProfile extends Component {
     styles: [],
     city:"",
     description:"",
-    styles: []
   }
 
   handleFormSubmit = (event) => {
     event.preventDefault();
-    const { email, city, description } = this.state
+    //const { email, city, description } = this.state
 
   }
 

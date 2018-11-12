@@ -17,7 +17,7 @@ class PlaylistService {
   }
 
   listPlaylist() {
-    return this.playlistService.get('/playlist')
+    return this.playlistService.get(`/playlist`)
       .then(({ data }) => data);
   }
 }

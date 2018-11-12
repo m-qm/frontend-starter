@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import auth from '../lib/auth-service'
+import { withAuth } from '../lib/authContext';
 
-export default class ProfileEdit extends Component {
+
+class ProfileEdit extends Component {
   state = {
     email: "",
     styles: [],
@@ -33,9 +35,11 @@ export default class ProfileEdit extends Component {
           <input type="text" value={email} name="email" placeholder="Your email" onChange={this.handleInputChange} />
           <input type="text" value={city} name="city" placeholder="Your city" onChange={this.handleInputChange}/>
           <textarea class="textarea" name="description" value={description} rows="5" cols="32" placeholder="Tell us about yourself..." onChange={this.handleInputChange}/>
-          <input type="submit" value="Submit"/>
+          <input type="submit" value="Submit" onClick={this.handleFormSubmit}/>
         </form>
       </div>
     )
   }
 }
+
+export default withAuth(ProfileEdit);

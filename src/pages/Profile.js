@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { withAuth } from '../lib/authContext';
-import profileService from '../lib/profileService';
+import auth from '../lib/auth-service';
 class Profile extends Component {
   
   state = {
     user: '',
     isLoading: true,
   }
+
 
   // componentDidMount() {
   //   this.update()
@@ -27,12 +28,13 @@ class Profile extends Component {
   //   })
   // }
   render() {
-    const { profile, isLoading } = this.state;
+    const { profile, isLoading, city } = this.state;
     return (
       <div>
         <h1>Welcome {this.props.user.username}</h1>        
-        { isLoading ? <h1>Loading....</h1> : <div>{profile}</div>
-        })}
+        {/* { isLoading ? <h1>Loading....</h1> : <div>{profile}</div>
+        } */}
+        <h2>{this.props.user.city}</h2>
       </div>
     )
   }

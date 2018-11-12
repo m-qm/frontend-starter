@@ -20,6 +20,16 @@ class PlaylistService {
     return this.playlistService.get(`/playlist`)
       .then(({ data }) => data);
   }
+
+  edit(playlist) {
+    return this.playlistService.put(`/playlist`)
+      .then(({ data }) => data);
+  }
+  
+  delete(id) {
+    return this.playlistService.delete(`/playlist/${id}`)
+      .then(({ data }) => data )
+  }
 }
 
 const playlistService = new PlaylistService();

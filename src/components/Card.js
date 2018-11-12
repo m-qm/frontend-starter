@@ -3,6 +3,7 @@ import { Button } from 'react-bootstrap';
 import axios from 'axios';
 import { withAuth } from '../lib/authContext';
 import { Link } from 'react-router-dom';
+import playlistService from '../lib/playlistservice';
 
 class Card extends Component {
 
@@ -16,23 +17,23 @@ class Card extends Component {
     return { __html: playlist.link }
   }
 
- deletePlaylist = (id) => {
-    const { params } = this.props.match;
-    axios.delete(`http://localhost:5000/api/playlist/${params.id}`)
-    .then( responseFromApi =>{
-        console.log(responseFromApi);
-        this.props.history.push('/playlist'); // !!!         
-    })
-    .catch((err)=>{
-        console.log(err)
-    })
+  deletePlaylist = (e) => {
+    const id = this.props.playlist._id
+    console.log(id);
+    playlistService.delete(id)
+      .then((result) => {
+        console.log("delete", result);
+        this.props.onDelete();
+      })
+      .catch((error) => {
+        console.log(error)
+      })
   }
 
 
   render() {
     const { playlist } = this.props;
     const { isLogged } = this.props;
-
     return (
       <div>
         <h2> 
@@ -43,7 +44,7 @@ class Card extends Component {
         </h2> 
         <div dangerouslySetInnerHTML={this.iframe()}/>
         <form action="playlist/:id/delete" method="post">
-          <Button className="btn-black-inline" onClick={this.props.handleDelete}>Delete</Button>
+          <Button className="btn-black-inline" onClick={this.deletePlaylist}>Delete</Button>
         </form>
       </div>
     )

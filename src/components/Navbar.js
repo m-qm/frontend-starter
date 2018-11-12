@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { withAuth } from '../lib/authContext';
 import {Nav, Navbar, NavItem, Button } from 'react-bootstrap';
 
@@ -17,6 +17,11 @@ class Navigation extends Component {
       collapsed: !this.state.collapsed,
     });
   }
+
+  handleClickHome = () => {
+    this.props.history.push("/home")
+  }
+
   render() {
     const { isLogged } = this.props;
     return (
@@ -29,24 +34,24 @@ class Navigation extends Component {
         </Navbar.Header>
         <Navbar.Collapse>
         <Nav>
-          <NavItem>
-            <Link to="/">Home</Link>
+          <NavItem onClick={this.handleClickHome}>
+            Home
           </NavItem>
           <NavItem>
-            <Link to="/about">About</Link>
+            {/* <Link to="/about">About</Link> */}
           </NavItem>
               {!isLogged ? 
           
               <NavItem>
-                <Link to="/login">Login</Link>
+                {/* <Link to="/login">Login</Link> */}
               </NavItem >         
             :
             <Nav>
               <NavItem> 
-            <Link to="/playlist/create">Create</Link>
+                {/* <Link to="/playlist/create">Create</Link> */}
               </NavItem>    
               <NavItem>  
-                <Link to="/playlist">Playlists</Link>
+                {/* <Link to="/playlist">Playlists</Link> */}
               </NavItem>   
               <NavItem>  
                 <Button className="btn-black-inline" onClick={this.props.logout}>Logout</Button>
@@ -60,4 +65,4 @@ class Navigation extends Component {
   }
 }
 
-export default withAuth(Navigation);
+export default withAuth(withRouter(Navigation));

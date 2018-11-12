@@ -19,12 +19,16 @@ class Playlist extends Component {
     });
 
     playlistService.listPlaylist()
-    .then((result) => {
-      this.setState({
-        playlists: result,
-        isLoading: false
+      .then((result) => {
+        this.setState({
+          playlists: result,
+          isLoading: false
+        })
       })
-    })
+  }
+
+  handleDelete = () => {
+    this.update()
   }
 
   
@@ -35,9 +39,9 @@ class Playlist extends Component {
       <div>
         <h1>Playlists</h1>
         { isLoading ? <h1>Loading....</h1> : playlists.map((playlist) => {
-          return <Card key={playlist._id} playlist={playlist} />
+          return <Card key={playlist._id} playlist={playlist} onDelete={this.handleDelete} />
         })}
-    </div>
+      </div>
     );
   }
 }

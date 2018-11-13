@@ -21,12 +21,27 @@ class Signup extends Component {
         this.setState({
             username: "",
             password: "",
+            alert: ''
         });
         this.props.setUser(user);
         this.props.history.push('/profile/create');
       })
-      .catch( error => console.log(error) )
-  }
+      .catch( error => {
+        const { data } = error.response;
+        console.log(data.error)
+        switch (data.error) {
+          case 'username-not-unique' :
+            this.setState({alert: 'This username is already taken'});
+            break;
+          case 'empty' :
+            this.setState({alert: 'Username or password cannot be empty'})
+            break;
+          default:
+              this.setState({
+                alert: ''
+              });
+        }
+      })  }
 
   handleChange = (event) => {  
     const {name, value} = event.target;
@@ -57,8 +72,7 @@ class Signup extends Component {
           <button className="btn btn-outline" type="submit" value="signup">Sign up</button>
         </form>
       </div>
-
-
+      <p>{this.state.alert}</p>
         <p>Already have account? 
           <Link to={"/login"}> Login</Link>
         </p>

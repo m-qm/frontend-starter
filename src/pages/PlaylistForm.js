@@ -18,7 +18,6 @@ class PlaylistForm extends Component {
     playlistService.create(this.state)
       .then(() => {
         this.props.history.push("/playlist")
-        console.log('heuyyyyyy')
       })
       .catch( error => console.log(error))
   }

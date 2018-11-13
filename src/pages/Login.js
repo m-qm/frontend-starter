@@ -8,6 +8,7 @@ class Login extends Component {
   state = {
     username: "",
     password: "",
+    alert: ""
   }
 
   handleFormSubmit = (event) => {
@@ -19,7 +20,25 @@ class Login extends Component {
       this.props.setUser(user)
       this.props.history.push('/playlist'); 
     })
-    .catch( error => console.log(error) )
+    .catch( error => {
+      const { data } = error.response;
+      switch (data.error) {
+        case 'Invalid password or username' :
+          this.setState({alert: 'Invalid username'});
+          break;
+        case 'validation' :
+          this.setState({alert: 'Username or password cannot be empty'})
+          break;
+        case 'not-found' :
+          this.setState({alert: 'Invalid password'})
+          break;
+        default:
+            this.setState({
+              alert: ''
+            });
+      }
+    })
+
   }
 
   handleChange = (event) => {  
@@ -39,7 +58,8 @@ class Login extends Component {
           <input className="form-control"  type="password" name="password"  placeholder="Enter password" value={password} onChange={this.handleChange}/>
           <button className="btn btn-outline" type="submit" value="login">Log in</button>
         </form>
-        </div>
+        </div> 
+        <p>{this.state.alert}</p>
         <p>Not registered?
           <Link to={"/signup"}>Sign up</Link>
         </p>

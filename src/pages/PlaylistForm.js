@@ -5,7 +5,6 @@ import { withRouter } from 'react-router-dom';
 
 
 class PlaylistForm extends Component {
- 
   state = {
     owner: "",
     title: "",

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { withAuth } from '../lib/authContext';
 import { BrowserRouter as Router } from 'react-router-dom';
-import {Nav, Navbar, NavItem, Button } from 'react-bootstrap';
+import {Nav, Navbar, NavItem, Form, FormControl} from 'react-bootstrap';
 
 
 class Navigation extends Component {
@@ -41,7 +41,7 @@ class Navigation extends Component {
   render() {
     const { isLogged } = this.props;
     return (
-      <Navbar inverse-fluid className="header navbar navbar-expand-md navbar-light bg-faded">
+      <Navbar bg="dark" variant="dark">
         <Navbar.Header >
         <Navbar.Brand>
         <h4 href="/">mTrap</h4> 
@@ -67,9 +67,11 @@ class Navigation extends Component {
               <NavItem onClick={this.handleClickProfile}> Profile
                 </NavItem>   
               <NavItem onClick={this.handleClickProfileEdit}> Profile Edit
-                </NavItem>   
+                </NavItem> 
+                <NavItem>
+                </NavItem>
               <NavItem>
-                <Button className="btn-black-inline" onClick={this.props.logout}>Logout</Button>
+                <NavItem className="btn-black-inline" onClick={this.props.logout}>Logout</NavItem>
               </NavItem>    
             </Nav>
             </div>

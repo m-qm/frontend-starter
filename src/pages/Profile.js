@@ -1,4 +1,12 @@
 import React, { Component } from 'react';
+import {
+  Grid,
+  Row,
+  Col,
+  FormGroup,
+  ControlLabel,
+  FormControl
+} from "react-bootstrap";
 import { withAuth } from '../lib/authContext';
 import { Link } from 'react-router-dom';
 import auth from '../lib/auth-service';
@@ -28,8 +36,6 @@ class Profile extends Component {
         })
       })
   }
-
-
 
   render() {
     const { profile, isLoading, city } = this.state;

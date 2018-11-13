@@ -28,9 +28,7 @@ export default class PlaylistEdit extends Component {
   render() {
     const { email, styles, city, description} = this.state;
     return (
-      <div>
-            <h1>Hey</h1>
-
+      <div className="container">
         <form>
           <input type="text" value={email} name="email" placeholder="Your email" onChange={this.handleInputChange} />
           <input type="text" value={city} name="city" placeholder="Your city" onChange={this.handleInputChange}/>

@@ -4,24 +4,21 @@ import playlistService from '../lib/playlistservice';
 // import EditPlaylist from './EditPlaylist';
 
 class PlaylistDetail extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      playlist: "",
-      id: ""
+  
+  state = {
+    data: []
   }
-    }
 
 
   componentDidMount(){
-      this.getSingleProject();
+    this.update();
   }
 
   update = () => {
     const id = this.props.match.params.id
     playlistService.listOnePlaylist(id)
     .then((data) => {
-      //console.log("data", data);
+      console.log("data", data)
       this.setState({
         data: data
       })
@@ -42,8 +39,9 @@ class PlaylistDetail extends Component {
 
     return(
       <div>
-        <h1> Hey </h1>
-        <h2>{data.name}</h2>
+        <h1> PlaylistDetail </h1>
+                  <h1>{data.name}</h1>
+
         <button onClick={() => this.deletePlaylist(this.state._id)}>Delete playlist</button>
         <Link to={'/playlist'}>Back to playlist</Link>
 

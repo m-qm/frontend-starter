@@ -4,7 +4,7 @@ header img {
 
 body {
   height: 125vh;
-  background-image: url('./IMG.jpg');
+  background-image: url('/../bg.jpg');
   background-size: cover;
   font-family:  'Hind Madurai Bold', sans-serif;
 
@@ -12,4 +12,9 @@ body {
 
 main {
   color: white;
+}
+
+video {
+  width: 100%;
+  height: auto;
 }

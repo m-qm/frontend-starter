@@ -8,6 +8,7 @@ import Login from './pages/Login';
 import Playlist from './pages/Playlist';
 import PlaylistForm from './pages/PlaylistForm';
 import PlaylistDetail from './pages/PlaylistDetail';
+import PlaylistEdit from './pages/PlaylistEdit';
 import ProfileCreate from './pages/ProfileCreate';
 import ProfileEdit from './pages/ProfileEdit';
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -25,18 +26,18 @@ class App extends Component {
             <Navigation />
 
           <div className="container">
-            <h1>mTrap</h1>
           </div>
             <Switch>
               <Route path="/signup" component={Signup} />
               <Route path="/login" component={Login} />              
               <PrivateRoute exact path="/playlist" component={Playlist} />
+              <PrivateRoute exact path="/playlistedit" component={PlaylistEdit} />
               <PrivateRoute path="/playlist/create" component={PlaylistForm} />
-              <PrivateRoute path="/:id" component={PlaylistDetail} />
+              <PrivateRoute path="/playlist/:id" component={PlaylistDetail} />
               <PrivateRoute path="/create" component={PlaylistForm} />
               <PrivateRoute exact path="/profile" component={Profile} />
               <PrivateRoute path="/profile/create" component={ProfileCreate} />
-              <PrivateRoute path="/profile/edit" component={ProfileEdit} />
+              <PrivateRoute exact path="/edit" component={ProfileEdit} />
 
             </Switch>
       </AuthContext>

@@ -34,7 +34,7 @@ class ProfileEdit extends Component {
         <form onSubmit={this.handleFormSubmit}>
           <input type="text" value={email} name="email" placeholder="Your email" onChange={this.handleInputChange} />
           <input type="text" value={city} name="city" placeholder="Your city" onChange={this.handleInputChange}/>
-          <textarea class="textarea" name="description" value={description} rows="5" cols="32" placeholder="Tell us about yourself..." onChange={this.handleInputChange}/>
+          <textarea class="textarea" name="description" value={description} rows="5" cols="32" placeholder="Tell us about your favorite music styles..." onChange={this.handleInputChange}/>
           <input type="submit" value="Submit" onClick={this.handleFormSubmit}/>
         </form>
       </div>

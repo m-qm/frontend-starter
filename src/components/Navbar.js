@@ -41,7 +41,7 @@ class Navigation extends Component {
   render() {
     const { isLogged } = this.props;
     return (
-      <Navbar className="header navbar navbar-expand-md navbar-light bg-faded">
+      <Navbar inverse-fluid className="header navbar navbar-expand-md navbar-light bg-faded">
         <Navbar.Header >
         <Navbar.Brand>
         <h4 href="/">mTrap</h4> 
@@ -61,9 +61,7 @@ class Navigation extends Component {
             :
         <div className="container">
             <Nav>
-            <NavItem>
-                Hi {this.props.user.username}
-            </NavItem> 
+
               <NavItem onClick={this.handleClickCreate}> Create
                 </NavItem>    
               <NavItem onClick={this.handleClickProfile}> Profile

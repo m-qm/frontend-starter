@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
+import { withRouter } from 'react-router-dom';
 import { Button, Grid, Row, Thumbnail, Col } from 'react-bootstrap';
-import { withAuth } from '../lib/authContext';
+// import { withAuth } from '../lib/authContext';
 import playlistService from '../lib/playlistservice';
 
 class PlaylistCard extends Component {
@@ -17,13 +18,15 @@ class PlaylistCard extends Component {
 
   getSinglePlaylist = (e) => {
     const id = this.props.playlist._id
-    playlistService.listOnePlaylist(id)
-      .then((result) => {
-        this.setState({
-          playlist: result,
-          isLoading: false
-        })
-      })
+    console.log(id)
+    this.props.history.push(`/playlist/${id}`)
+    // playlistService.listOnePlaylist(id)
+    //   .then((result) => {
+    //     this.setState({
+    //       playlist: result,
+    //       isLoading: false
+    //     })
+    //   })
   }
 
   deletePlaylist = (e) => {
@@ -45,31 +48,31 @@ class PlaylistCard extends Component {
     const { isLogged } = this.props;
     return (
       <div className="card">
-        
-        
         <Grid>
-        <Row>
-        <Col xs={12} md={6}>
-        <Thumbnail classname="mx-6">
-        <h2> 
-          {playlist.title}
-        </h2> 
-        <h2> 
-          {playlist.id}
-        </h2> 
-        <h3>{playlist._id}</h3>
-        <div dangerouslySetInnerHTML={this.iframe()}/>
-        <form action="playlist/:id/delete" method="post">
-          <Button className="btn-black-inline" onClick={this.deletePlaylist}>Delete</Button>
-          <Button onClick={this.getSinglePlaylist}>Playlist Detail</Button>
-        </form>
-        </Thumbnail>
+          <Row>
+            <Col xs={12} md={6}>
+            <div className="container-fluid">
+            <h3> 
+              {playlist.title}
+            </h3> 
+            <h2> 
+              {playlist.id}
+            </h2> 
+            <h3>{playlist._id}</h3>
+              <div className="video-container">
+              <div className="video" dangerouslySetInnerHTML={this.iframe()}/>
+                </div>
+              </div>
+            <form action="playlist/:id/delete" method="post">
+              <Button className="btn-black-inline" onClick={this.deletePlaylist}>Delete</Button>
+              <Button onClick={this.getSinglePlaylist}>Playlist Detail</Button>
+            </form>
             </Col>
           </Row>
-        </Grid>;
+        </Grid>
       </div>
     )
   }
 }
 
-export default PlaylistCard;
+export default withRouter(PlaylistCard);

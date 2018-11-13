@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 
 import auth from '../lib/auth-service';
 import { withAuth } from '../lib/authContext';
+import {
+ Alert
+} from "react-bootstrap";
 
 class Login extends Component {
   state = {
@@ -24,7 +27,7 @@ class Login extends Component {
       const { data } = error.response;
       switch (data.error) {
         case 'Invalid password or username' :
-          this.setState({alert: 'Invalid username'});
+          this.setState(<Alert bsStyle="warning"> Invalid username </Alert>);
           break;
         case 'validation' :
           this.setState({alert: 'Username or password cannot be empty'})
@@ -34,11 +37,10 @@ class Login extends Component {
           break;
         default:
             this.setState({
-              alert: ''
+              
             });
       }
     })
-
   }
 
   handleChange = (event) => {  
@@ -47,7 +49,7 @@ class Login extends Component {
   }
 
   render() {
-    const { username, password } = this.state;
+    const { username, password} = this.state;
     return (
       <div className="container bg-3 text-center">    
       <div className="row text-center justify-content-center pt-4">
@@ -59,7 +61,8 @@ class Login extends Component {
           <button className="btn btn-outline" type="submit" value="login">Log in</button>
         </form>
         </div> 
-        <p>{this.state.alert}</p>
+      
+        <p><Alert bsStyle="danger">{this.state.alert}</Alert></p>
         <p>Not registered?
           <Link to={"/signup"}>Sign up</Link>
         </p>

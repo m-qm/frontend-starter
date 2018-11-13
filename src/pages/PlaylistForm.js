@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { withAuth } from '../lib/authContext';
 import playlistService from '../lib/playlistservice';
+import { withRouter } from 'react-router-dom';
 
 
 class PlaylistForm extends Component {
@@ -17,6 +18,7 @@ class PlaylistForm extends Component {
     //const { title, link, styles } = this.state;
     playlistService.create(this.state)
       .then(() => {
+        this.props.history.push("/playlist")
         console.log('heuyyyyyy')
       })
       .catch( error => console.log(error))
@@ -43,4 +45,4 @@ class PlaylistForm extends Component {
   }
 }
 
-export default withAuth(PlaylistForm);
+export default withAuth(withRouter(PlaylistForm));

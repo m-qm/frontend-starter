@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom';
 import { withAuth } from '../lib/authContext';
 import { BrowserRouter as Router } from 'react-router-dom';
 import {Nav, Navbar, NavItem, Form, FormControl} from 'react-bootstrap';
+import SearchBar from './SearchBar';
 
 
 class Navigation extends Component {
@@ -61,18 +62,17 @@ class Navigation extends Component {
             :
         <div className="container">
             <Nav>
-
               <NavItem onClick={this.handleClickCreate}> Create
                 </NavItem>    
               <NavItem onClick={this.handleClickProfile}> Profile
                 </NavItem>   
               <NavItem onClick={this.handleClickProfileEdit}> Profile Edit
                 </NavItem> 
-                <NavItem>
-                </NavItem>
-              <NavItem>
                 <NavItem className="btn-black-inline" onClick={this.props.logout}>Logout</NavItem>
-              </NavItem>    
+              <NavItem>
+            <SearchBar></SearchBar>
+            </NavItem>
+
             </Nav>
             </div>
             }

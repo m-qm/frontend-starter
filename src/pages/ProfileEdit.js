@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import auth from '../lib/auth-service'
 import { withAuth } from '../lib/authContext';
+import { withRouter } from 'react-router-dom';
+
 
 
 class ProfileEdit extends Component {
@@ -18,6 +20,7 @@ class ProfileEdit extends Component {
     .then((user) => {
       console.log(user)
       this.props.setUser(user)
+      this.props.history.push("/profile")
     })
     .catch( error => console.log(error))
   }
@@ -27,6 +30,10 @@ class ProfileEdit extends Component {
     this.setState({[name]: value});
   }
   
+  handleClickProfile = () => {
+    this.props.history.push("/profile")
+  }
+
   render() {
     const { email, styles, city, description} = this.state;
     return (
@@ -34,12 +41,12 @@ class ProfileEdit extends Component {
         <form onSubmit={this.handleFormSubmit}>
           <input type="text" value={email} name="email" placeholder="Your email" onChange={this.handleInputChange} />
           <input type="text" value={city} name="city" placeholder="Your city" onChange={this.handleInputChange}/>
-          <textarea class="textarea" name="description" value={description} rows="5" cols="32" placeholder="Tell us about your favorite music styles..." onChange={this.handleInputChange}/>
-          <input type="submit" value="Submit" onClick={this.handleFormSubmit}/>
+          <textarea class="textarea" name="description" value={description} rows="5" cols="32" placeholder="Tell us about yourself..." onChange={this.handleInputChange}/>
+          <input type="submit" value="Submit"/>
         </form>
       </div>
     )
   }
 }
 
-export default withAuth(ProfileEdit);
+export default withAuth(withRouter(ProfileEdit));

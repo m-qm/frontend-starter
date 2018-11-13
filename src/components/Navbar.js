@@ -60,7 +60,11 @@ class Navigation extends Component {
           <NavItem onClick={this.handleClickLogin}> Login
               </NavItem >         
             :
+        <div className="container">
             <Nav>
+            <NavItem>
+                Hi {this.props.user.username}
+            </NavItem> 
               <NavItem onClick={this.handleClickCreate}> Create
                 </NavItem>    
               <NavItem onClick={this.handleClickProfile}> Profile
@@ -71,6 +75,7 @@ class Navigation extends Component {
                 <Button className="btn-black-inline" onClick={this.props.logout}>Logout</Button>
               </NavItem>    
             </Nav>
+            </div>
             }
         </Nav>
         </Navbar.Collapse>

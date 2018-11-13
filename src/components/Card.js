@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import { Button } from 'react-bootstrap';
+import { Button, Grid, Row, Thumbnail, Col } from 'react-bootstrap';
 import { withAuth } from '../lib/authContext';
 import playlistService from '../lib/playlistservice';
 
-class Card extends Component {
+class PlaylistCard extends Component {
 
   state = {
     playlist: "",
@@ -45,22 +45,31 @@ class Card extends Component {
     const { isLogged } = this.props;
     return (
       <div className="card">
+        
+        
+        <Grid>
+        <Row>
+        <Col xs={12} md={6}>
+        <Thumbnail classname="mx-6">
         <h2> 
           {playlist.title}
         </h2> 
         <h2> 
           {playlist.id}
-
         </h2> 
-        <h1>{playlist._id}</h1>
+        <h3>{playlist._id}</h3>
         <div dangerouslySetInnerHTML={this.iframe()}/>
         <form action="playlist/:id/delete" method="post">
           <Button className="btn-black-inline" onClick={this.deletePlaylist}>Delete</Button>
           <Button onClick={this.getSinglePlaylist}>Playlist Detail</Button>
         </form>
+        </Thumbnail>
+            </Col>
+          </Row>
+        </Grid>;
       </div>
     )
   }
 }
 
-export default Card;
+export default PlaylistCard;

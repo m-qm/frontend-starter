@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import playlistService from '../lib/playlistservice';
-import Card from '../components/Card';
+import PlaylistCard from '../components/Card';
 class Playlist extends Component {
 
   state = {
@@ -36,7 +36,7 @@ class Playlist extends Component {
       <div className="container">
         <h1>Playlists</h1>
         { isLoading ? <h1>Loading....</h1> : playlists.map((playlist) => {
-          return <Card key={playlist._id} playlist={playlist} onDelete={this.handleDelete} />
+          return <PlaylistCard key={playlist._id} playlist={playlist} onDelete={this.handleDelete} />
         })}
       </div>
     );

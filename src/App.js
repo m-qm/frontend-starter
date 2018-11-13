@@ -23,7 +23,7 @@ class App extends Component {
     return (
       <AuthContext>
             <Navigation />
-          <div>
+
           <div className="container">
             <h1>mTrap</h1>
           </div>
@@ -39,7 +39,6 @@ class App extends Component {
               <PrivateRoute path="/profile/edit" component={ProfileEdit} />
 
             </Switch>
-          </div>
       </AuthContext>
     )
   }

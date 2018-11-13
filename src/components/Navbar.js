@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { withAuth } from '../lib/authContext';
-import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 import {Nav, Navbar, NavItem, Button } from 'react-bootstrap';
 

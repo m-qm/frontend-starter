@@ -32,7 +32,7 @@ class App extends Component {
               <Route path="/login" component={Login} />              
               <PrivateRoute exact path="/playlist" component={Playlist} />
               <PrivateRoute path="/playlist/create" component={PlaylistForm} />
-              <PrivateRoute path="/playlistdetail/:id" component={PlaylistDetail} />
+              <PrivateRoute path="/:id" component={PlaylistDetail} />
               <PrivateRoute path="/create" component={PlaylistForm} />
               <PrivateRoute exact path="/profile" component={Profile} />
               <PrivateRoute path="/profile/create" component={ProfileCreate} />

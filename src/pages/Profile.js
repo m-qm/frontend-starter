@@ -38,7 +38,6 @@ class Profile extends Component {
 
   render() {
     const { profile, isLoading, playlist} = this.state;
-        console.log(this.props.user)
 
     return (
       <div className="container">
@@ -51,7 +50,7 @@ class Profile extends Component {
         </Col>
         <Col xs={6} md={4}>
         <Row>
-          <h4>hey {this.props.user.username} </h4>
+          <h4>Hey {this.props.user.username}! </h4>
 
             {/* <h5>{this.props.user.favorites.map((favorite) => {
               return <PlaylistCard key={playlist._id} playlist={playlist} onDelete={this.handleDelete}/>

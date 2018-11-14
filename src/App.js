@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import PrivateRoute from './components/PrivateRoute';
+import PublicRoute from './components/PublicRoute';
 import Navigation from './components/Navbar';
 import Profile from './pages/Profile';
 import Signup from './pages/Signup';
@@ -23,8 +24,8 @@ class App extends Component {
           <div className="container">
           </div>
             <Switch>
-              <Route path="/signup" component={Signup} />
-              <Route path="/login" component={Login} />              
+              <PublicRoute path="/signup" component={Signup} />
+              <PublicRoute path="/login" component={Login} />              
               <PrivateRoute exact path="/playlist" component={Playlist} />
               <PrivateRoute exact path="/playlistedit" component={PlaylistEdit} />
               <PrivateRoute path="/playlist/create" component={PlaylistForm} />

@@ -3,9 +3,7 @@ import { Link } from 'react-router-dom';
 
 import auth from '../lib/auth-service';
 import { withAuth } from '../lib/authContext';
-import {
- Alert
-} from "react-bootstrap";
+
 
 class Login extends Component {
   state = {
@@ -63,8 +61,7 @@ class Login extends Component {
           <button className="btn btn-outline" type="submit" value="login">Log in</button>
         </form>
         </div> 
-      
-        <p><Alert bsStyle="danger">{this.state.alert}</Alert></p>
+        <p>{this.state.alert}</p>
         <p>Not registered?
           <Link to={"/signup"}>Sign up</Link>
         </p>

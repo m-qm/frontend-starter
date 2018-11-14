@@ -37,13 +37,16 @@ class ProfileEdit extends Component {
   render() {
     const { email, styles, city, description} = this.state;
     return (
-      <div>
+      <div className="container">
+      <div className="row">
         <form onSubmit={this.handleFormSubmit}>
           <input type="text" value={email} name="email" placeholder="Your email" onChange={this.handleInputChange} />
           <input type="text" value={city} name="city" placeholder="Your city" onChange={this.handleInputChange}/>
           <textarea class="textarea" name="description" value={description} rows="5" cols="32" placeholder="Tell us about yourself..." onChange={this.handleInputChange}/>
+          <textarea class="textarea" name="styles" value={styles} rows="5" cols="32" placeholder="Styles" onChange={this.handleInputChange}/>
           <input type="submit" value="Submit"/>
         </form>
+        </div>
       </div>
     )
   }

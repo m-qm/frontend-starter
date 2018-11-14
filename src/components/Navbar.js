@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { withAuth } from '../lib/authContext';
-import { BrowserRouter as Router } from 'react-router-dom';
-import {Nav, Navbar, NavItem, Form, FormControl} from 'react-bootstrap';
+// import { BrowserRouter as Router } from 'react-router-dom';
+import {Nav, Navbar, NavItem} from 'react-bootstrap';
 import SearchBar from './SearchBar';
 
 
@@ -43,14 +43,14 @@ class Navigation extends Component {
     const { isLogged } = this.props;
     return (
       <Navbar bg="dark" variant="dark">
-        <Navbar.Header >
+        <Navbar.Header className="justify-content-end" >
         <Navbar.Brand>
         <h4 href="/">mTrap</h4> 
         </Navbar.Brand>
         <Navbar.Toggle />
         </Navbar.Header>
         <Navbar.Collapse>
-        <Nav>
+        <Nav className="justify-content-end">
           <NavItem onClick={this.handleClickHome}>
             Home
           </NavItem>
@@ -68,10 +68,14 @@ class Navigation extends Component {
                 </NavItem>   
               <NavItem onClick={this.handleClickProfileEdit}> Profile Edit
                 </NavItem> 
-                <NavItem className="btn-black-inline" onClick={this.props.logout}>Logout</NavItem>
+                <NavItem>
+                </NavItem>
               <NavItem>
-            <SearchBar></SearchBar>
-            </NavItem>
+                <NavItem className="btn-black-inline" onClick={this.props.logout}>Logout</NavItem>
+              </NavItem>
+             <NavItem>
+              <SearchBar></SearchBar>
+          </NavItem>
 
             </Nav>
             </div>

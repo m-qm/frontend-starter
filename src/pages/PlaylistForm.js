@@ -2,20 +2,22 @@ import React, { Component } from 'react'
 import { withAuth } from '../lib/authContext';
 import playlistService from '../lib/playlistservice';
 import { withRouter } from 'react-router-dom';
-
+import { FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
 
 class PlaylistForm extends Component {
   state = {
     owner: "",
     title: "",
     link: "",
-    styles: [],
+    styles: []
   }
 
   handleFormSubmit = (event) => {
     event.preventDefault();
     //const { title, link, styles } = this.state;
+    console.log(this.state)
     playlistService.create(this.state)
+
       .then(() => {
         this.props.history.push("/playlist")
       })
@@ -23,22 +25,64 @@ class PlaylistForm extends Component {
   }
 
   handleInputChange = (event) => {  
-    const {name, value} = event.target;
+    console.log(event.target.name, event.target.value)
+    const {name, value } = event.target;
     this.setState({[name]: value});
   }
-  
+
+  findByName(value, array){
+    array.map((v, i) => {
+      if(value === v){
+        console.log('found!')
+        return i
+      }
+      return -1
+    } )
+  } 
+
+  handleSelectChange = (event) => {
+    var stylesArr = this.state.styles.slice();
+      let index = stylesArr.indexOf(event.target.value)
+      if(index >-1) {
+        stylesArr.splice(index, 1)
+      }
+    else {
+      stylesArr.push(event.target.value);
+    }
+    console.log(this.state.styles,stylesArr);
+    this.setState({[event.target.name]: stylesArr})
+  }
+
   render() {
     const { title, link, styles } = this.state;
+    
     return (
+      <div className="container">
+      <div className="row">
+        <h1>Create your playlist</h1>
+      </div>
+      <div className="row">
       <div className="form-group">
-      <h1>Hola</h1>
+
         <form onSubmit={this.handleFormSubmit}>
           <input type="text" value={title} name="title" placeholder="Your title" onChange={this.handleInputChange} />
           <input type="text" value={link} name="link" placeholder="Your link" onChange={this.handleInputChange}/>
-          <textarea className="textarea" name="styles" value={styles} rows="5" cols="32" placeholder="Describe your playlist" onChange={this.handleInputChange}/>
+            <FormGroup controlId={styles}>
+                <ControlLabel>Styles</ControlLabel>
+                <FormControl componentClass="select" multiple name="styles" onChange={this.handleSelectChange}>
+                <option value="Pop">POP</option>
+                <option value="Rock">Rock</option>
+                <option value="Flamenco">Flamenco</option>
+                <option value="Techno">Techno</option>
+                <option value="Metal">Metal</option>
+                <option value="Bachata">Bachata</option>
+              </FormControl>
+            </FormGroup>
           <input type="submit" value="Submit"/>
         </form>
       </div>
+    </div>
+    </div>
     )
   }
 }

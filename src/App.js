@@ -11,13 +11,7 @@ import PlaylistDetail from './pages/PlaylistDetail';
 import PlaylistEdit from './pages/PlaylistEdit';
 import ProfileCreate from './pages/ProfileCreate';
 import ProfileEdit from './pages/ProfileEdit';
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStroopwafel } from '@fortawesome/free-solid-svg-icons'
 import AuthContext from './lib/authContext';
-
-library.add(faStroopwafel)
-
 
 class App extends Component {
   render() {
@@ -37,7 +31,7 @@ class App extends Component {
               <PrivateRoute path="/create" component={PlaylistForm} />
               <PrivateRoute exact path="/profile" component={Profile} />
               <PrivateRoute path="/profile/create" component={ProfileCreate} />
-              <PrivateRoute exact path="/edit" component={ProfileEdit} />
+              <PrivateRoute exact path="/profile/edit" component={ProfileEdit} />
 
             </Switch>
       </AuthContext>

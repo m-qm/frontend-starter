@@ -25,13 +25,13 @@ class Login extends Component {
       console.log(data.error);
       switch (data.error) {
         case 'Invalid password or username' :
-          this.setState({alert: 'Invalid username'});
+          this.setState({alert: 'Invalid email or password.'});
           break;
         case 'validation' :
-          this.setState({alert: 'Username or password cannot be empty'})
+          this.setState({alert: 'Username or password cannot be empty.'})
           break;
         case 'not-found' :
-          this.setState({alert: 'Invalid password'})
+          this.setState({alert: 'Invalid email or password.'})
           break;
         default:
             this.setState({

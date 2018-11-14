@@ -31,10 +31,10 @@ class Signup extends Component {
         console.log(data.error)
         switch (data.error) {
           case 'username-not-unique' :
-            this.setState({alert: 'This username is already taken'});
+            this.setState({alert: 'This username is already taken.'});
             break;
           case 'empty' :
-            this.setState({alert: 'Username or password cannot be empty'})
+            this.setState({alert: 'Username or password cannot be empty.'})
             break;
           default:
               this.setState({

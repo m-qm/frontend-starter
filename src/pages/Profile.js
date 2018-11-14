@@ -49,7 +49,7 @@ class Profile extends Component {
         </Col>
         <Col xs={6} md={4}>
         <Row>
-          <h4>hey {this.props.user.username} </h4>
+          <h4>Hey {this.props.user.username} </h4>
             <h5>{this.props.user.city}</h5>
             <h5>{this.props.user.description}</h5>
               <div className="row"></div>

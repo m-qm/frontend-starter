@@ -7,6 +7,8 @@ import {
 } from "react-bootstrap";
 import { withAuth } from '../lib/authContext';
 import { Link } from 'react-router-dom';
+import PlaylistCard from '../components/Card';
+
 import auth from '../lib/auth-service';
 
 class Profile extends Component {
@@ -14,10 +16,10 @@ class Profile extends Component {
   state = {
     user: '',
     isLoading: true,
+    favorites: []
   }
 
   componentDidMount() {
-    this.update()
     console.log(this.props.user)
   }
 
@@ -35,8 +37,7 @@ class Profile extends Component {
   }
 
   render() {
-    const { profile, isLoading, city, user, description } = this.state;
-        console.log(this.props.user)
+    const { profile, isLoading, playlist} = this.state;
 
     return (
       <div className="container">
@@ -49,9 +50,12 @@ class Profile extends Component {
         </Col>
         <Col xs={6} md={4}>
         <Row>
-          <h4>Hey {this.props.user.username} </h4>
-            <h5>{this.props.user.city}</h5>
-            <h5>{this.props.user.description}</h5>
+          <h4>Hey {this.props.user.username}! </h4>
+
+            {/* <h5>{this.props.user.favorites.map((favorite) => {
+              return <PlaylistCard key={playlist._id} playlist={playlist} onDelete={this.handleDelete}/>
+            }) }
+            </h5> */}
               <div className="row"></div>
         </Row>
         <Link to={'/create'}>Add a playlist</Link>
@@ -60,7 +64,7 @@ class Profile extends Component {
         <Link to={'/playlist'}>Back to playlist</Link>
           </Col>
         <Col xs={6} md={4}>
-        <Link to={'/profileedit'}>Edit Profile</Link>
+        <Link to={'/profile/edit'}>Edit Profile</Link>
           </Col>
         </Row>
         <Col xs={12} md={4}>

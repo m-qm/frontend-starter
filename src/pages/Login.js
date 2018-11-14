@@ -3,9 +3,7 @@ import { Link } from 'react-router-dom';
 
 import auth from '../lib/auth-service';
 import { withAuth } from '../lib/authContext';
-import {
- Alert
-} from "react-bootstrap";
+
 
 class Login extends Component {
   state = {
@@ -64,7 +62,6 @@ class Login extends Component {
         </form>
         </div> 
         <p>{this.state.alert}</p>
-        {/* <p><Alert bsStyle="danger">{this.state.alert}</Alert></p> */}
         <p>Not registered?
           <Link to={"/signup"}>Sign up</Link>
         </p>

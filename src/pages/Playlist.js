@@ -6,6 +6,7 @@ class Playlist extends Component {
   state = {
     playlists: [],
     isLoading: true,
+    
   }
 
   componentDidMount() {
@@ -16,7 +17,7 @@ class Playlist extends Component {
     this.setState({
       isLoading: true,
     });
-
+    
     playlistService.listPlaylist()
       .then((result) => {
         this.setState({
@@ -30,13 +31,18 @@ class Playlist extends Component {
     this.update()
   }
 
+  onAdd = () => {
+    this.update()
+  }
+  
+
   render() {
     const { playlists, isLoading } = this.state;
     return (
       <div className="container">
         <h1>Playlists</h1>
         { isLoading ? <h1>Loading....</h1> : playlists.map((playlist) => {
-          return <PlaylistCard key={playlist._id} playlist={playlist} onDelete={this.handleDelete} />
+          return <PlaylistCard key={playlist._id} playlist={playlist} onDelete={this.handleDelete} onAdd={this.addToFavorites}/>
         })}
       </div>
     );

@@ -26,8 +26,8 @@ class PlaylistService {
       .then(({ data }) => data);
   }
 
-  edit(playlist) {
-    return this.playlistService.put(`/playlist`)
+  edit(id, playlist) {
+    return this.playlistService.put(`/playlist/${id}`, playlist)
       .then(({ data }) => data);
   }
   
@@ -36,6 +36,10 @@ class PlaylistService {
       .then(({ data }) => data )
   }
   
+  favorites(id) {
+    return this.playlistService.post(`/playlist/${id}/favorites`)
+  }
+
   search(styles) {
     return this.playlistService.get(`/search/${styles}`)
       .then(({ data }) => data )

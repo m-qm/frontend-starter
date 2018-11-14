@@ -19,7 +19,7 @@ class App extends Component {
   render() {
     return (
       <AuthContext>
-            <Navigation />
+          <Navigation />
           <div className="container">
           </div>
             <Switch>

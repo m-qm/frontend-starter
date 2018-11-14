@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import playlistService from '../lib/playlistservice';
-import PlaylistCard from '../components/Card';
+// import PlaylistCard from '../components/Card';
 // import EditPlaylist from './EditPlaylist';
 
 class PlaylistDetail extends Component {
@@ -43,7 +43,7 @@ class PlaylistDetail extends Component {
   }
 
   render(){
-    const { data, isLoading } = this.state;
+    // const { isLoading } = this.state;
 
     return(
       <div className="container">

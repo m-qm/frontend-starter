@@ -3,7 +3,6 @@ import { withRouter } from 'react-router-dom';
 import { Button, Grid, Row, Col } from 'react-bootstrap';
 // import { withAuth } from '../lib/authContext';
 import playlistService from '../lib/playlistservice';
-// import { withAuth } from '../lib/authContext';
 
 
 class PlaylistCard extends Component {
@@ -46,6 +45,15 @@ class PlaylistCard extends Component {
       })
   }
 
+  addToFavorites = (e) => {
+    const id = this.props.playlist._id
+
+    playlistService.favorites(id)
+    .then((result) => {
+      console.log("added to favorites", result);
+    })
+
+  }
 
   render() {
     const { playlist } = this.props;
@@ -69,6 +77,8 @@ class PlaylistCard extends Component {
             <form action="playlist/:id/delete" method="post">
               <Button className="btn-black-inline" onClick={this.deletePlaylist}>Delete</Button>
               <Button onClick={this.getSinglePlaylist}>Playlist Detail</Button>
+              <Button onClick={this.addToFavorites}>Add to Favorites</Button>
+
             </form>
             </Col>
           </Row>

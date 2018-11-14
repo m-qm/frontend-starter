@@ -13,20 +13,22 @@ export default class PlaylistEdit extends Component {
     event.preventDefault();
     const { email, city, description, styles } = this.state
     auth.update({email, styles, city, description}) 
-    .then((user) => {
-      console.log(user)
-      // this.props.setUser(user)
-    })
-    .catch( error => console.log(error))
+      .then((user) => {
+        this.props.setUser(user)
+      })
+      .catch( error => console.log(error))
   }
 
   handleInputChange = (event) => {  
     const {name, value} = event.target;
-    this.setState({[name]: value});
+    this.setState({
+      [name]: value
+    });
   }
   
   render() {
     const { email, styles, city, description} = this.state;
+    console.log("user", this.props.user)
     return (
       <div className="container">
         <form>

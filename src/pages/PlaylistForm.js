@@ -67,7 +67,7 @@ class PlaylistForm extends Component {
         <form onSubmit={this.handleFormSubmit}>
           <input type="text" value={title} name="title" placeholder="Your title" onChange={this.handleInputChange} />
           <input type="text" value={link} name="link" placeholder="Your link" onChange={this.handleInputChange}/>
-            <FormGroup controlId={styles}>
+            <FormGroup controlId={""}>
                 <ControlLabel>Styles</ControlLabel>
                 <FormControl componentClass="select" multiple name="styles" onChange={this.handleSelectChange}>
                 <option value="Pop">Pop</option>

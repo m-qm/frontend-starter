@@ -35,6 +35,11 @@ class PlaylistService {
     return this.playlistService.delete(`/playlist/${id}`)
       .then(({ data }) => data )
   }
+  
+  search(styles) {
+    return this.playlistService.get(`/search/${styles}`)
+      .then(({ data }) => data )
+  }
 }
 
 const playlistService = new PlaylistService();

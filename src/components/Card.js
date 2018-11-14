@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom';
-import { Button, Grid, Row, Thumbnail, Col } from 'react-bootstrap';
+import { Button, Grid, Row, Col } from 'react-bootstrap';
 // import { withAuth } from '../lib/authContext';
 import playlistService from '../lib/playlistservice';
+import { withAuth } from '../lib/authContext';
+
 
 class PlaylistCard extends Component {
 
@@ -32,6 +34,7 @@ class PlaylistCard extends Component {
   deletePlaylist = (e) => {
     const id = this.props.playlist._id
     console.log(id);
+    
     playlistService.delete(id)
       .then((result) => {
         console.log("delete", result);
@@ -45,7 +48,7 @@ class PlaylistCard extends Component {
 
   render() {
     const { playlist } = this.props;
-    const { isLogged } = this.props;
+    // const { isLogged } = this.props;
     return (
       <div className="card">
         <Grid>
@@ -54,11 +57,10 @@ class PlaylistCard extends Component {
             <div className="container-fluid">
             <h3> 
               {playlist.title}
-            </h3> 
-            <h2> 
-              {playlist.id}
-            </h2> 
-            <h3>{playlist._id}</h3>
+            </h3>
+            <h5> 
+              {playlist.styles}
+            </h5> 
               <div className="video-container">
               <div className="video" dangerouslySetInnerHTML={this.iframe()}/>
                 </div>

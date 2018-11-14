@@ -9,12 +9,25 @@ class PlaylistCard extends Component {
 
   state = {
     playlist: "",
-    id: ""
+    id: "",
+    isFavorite: this.props.playlist.favorite
   }
 
   iframe = () => {
     const { playlist } = this.props;
     return { __html: playlist.link }
+  }
+
+
+  addToFavorites = (e) => {
+    const playlist = this.props;
+    const id = this.props.playlist._id;
+
+    playlistService.favorites(id)
+    .then((result) => {
+      console.log("added to favorites", result);
+    })
+
   }
 
   getSinglePlaylist = (e) => {
@@ -32,32 +45,25 @@ class PlaylistCard extends Component {
 
   deletePlaylist = (e) => {
     const id = this.props.playlist._id
-    // const currentUser = this.props.user._id
-    console.log(id);
+    const { isFavorite } = this.state;
     
     playlistService.delete(id)
       .then((result) => {
         console.log("delete", result);
         this.props.onDelete();
       })
+      .then(() => {
+      this.setState({ isFavorite: !isFavorite })
+        })
       .catch((error) => {
         console.log(error)
       })
   }
 
-  addToFavorites = (e) => {
-    const id = this.props.playlist._id
-
-    playlistService.favorites(id)
-    .then((result) => {
-      console.log("added to favorites", result);
-    })
-
-  }
 
   render() {
     const { playlist } = this.props;
-    // const { isLogged } = this.props;
+    const { isFavorite } = this.state;
     return (
       <div className="card">
         <Grid>
@@ -77,8 +83,8 @@ class PlaylistCard extends Component {
             <form action="playlist/:id/delete" method="post">
               <Button className="btn-black-inline" onClick={this.deletePlaylist}>Delete</Button>
               <Button onClick={this.getSinglePlaylist}>Playlist Detail</Button>
-              <Button onClick={this.addToFavorites}>Add to Favorites</Button>
-
+              <Button className="glyphicon glyphicon-heart-empty" onClick={this.addToFavorites}>{isFavorite ?
+              <span className="glyphicon glyphicon-heart"></span> : <span></span>}</Button>
             </form>
             </Col>
           </Row>

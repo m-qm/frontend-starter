@@ -7,7 +7,7 @@ import {
 } from "react-bootstrap";
 import { withAuth } from '../lib/authContext';
 import { Link } from 'react-router-dom';
-import PlaylistCard from '../components/Card';
+// import PlaylistCard from '../components/Card';
 
 import auth from '../lib/auth-service';
 

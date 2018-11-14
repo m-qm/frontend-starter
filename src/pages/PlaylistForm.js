@@ -70,7 +70,8 @@ class PlaylistForm extends Component {
             <FormGroup controlId={styles}>
                 <ControlLabel>Styles</ControlLabel>
                 <FormControl componentClass="select" multiple name="styles" onChange={this.handleSelectChange}>
-                <option value="Pop">POP</option>
+                <option value="Pop">Pop</option>
+                <option value="Reggae">Reggae</option>
                 <option value="Rock">Rock</option>
                 <option value="Flamenco">Flamenco</option>
                 <option value="Techno">Techno</option>

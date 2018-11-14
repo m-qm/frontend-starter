@@ -38,7 +38,9 @@ class ProfileEdit extends Component {
     const { email, styles, city, description} = this.state;
     return (
       <div className="container">
-      <div className="row">
+      <h3>Edit your profile:</h3>
+      <div className="row justify-content">
+      <div className="form-group">
         <form onSubmit={this.handleFormSubmit}>
           <input type="text" value={email} name="email" placeholder="Your email" onChange={this.handleInputChange} />
           <input type="text" value={city} name="city" placeholder="Your city" onChange={this.handleInputChange}/>
@@ -46,6 +48,7 @@ class ProfileEdit extends Component {
           <textarea class="textarea" name="styles" value={styles} rows="5" cols="32" placeholder="Styles" onChange={this.handleInputChange}/>
           <input type="submit" value="Submit"/>
         </form>
+        </div>
         </div>
       </div>
     )

@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 import { Button, Grid, Row, Col } from 'react-bootstrap';
 // import { withAuth } from '../lib/authContext';
 import playlistService from '../lib/playlistservice';
-import { withAuth } from '../lib/authContext';
+// import { withAuth } from '../lib/authContext';
 
 
 class PlaylistCard extends Component {
@@ -33,7 +33,7 @@ class PlaylistCard extends Component {
 
   deletePlaylist = (e) => {
     const id = this.props.playlist._id
-    const currentUser = this.props.user._id
+    // const currentUser = this.props.user._id
     console.log(id);
     
     playlistService.delete(id)

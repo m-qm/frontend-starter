@@ -35,7 +35,7 @@ class Profile extends Component {
   }
 
   render() {
-    const { profile, isLoading, city, user, description } = this.state;
+    const { profile, isLoading } = this.state;
         console.log(this.props.user)
 
     return (

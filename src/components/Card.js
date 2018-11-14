@@ -33,6 +33,7 @@ class PlaylistCard extends Component {
 
   deletePlaylist = (e) => {
     const id = this.props.playlist._id
+    const currentUser = this.props.user._id
     console.log(id);
     
     playlistService.delete(id)

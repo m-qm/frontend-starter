@@ -53,8 +53,9 @@ class Login extends Component {
     const { username, password} = this.state;
     return (
       <div className="container bg-3 text-center">    
-      <div className="row text-center justify-content-center pt-4">
-        <form className="col-lg-offset-2 col-lg-10 mx-3" onSubmit={this.handleFormSubmit}>
+      <div className="row text-center justify-content-center">
+        <div className="col-md-6 col-md-offset-3 text-center"></div>
+        <form className="form-group col-sm-4 mx-auto" onSubmit={this.handleFormSubmit}>
           <label>Username:</label>
           <input className="form-control" type="text" name="username" placeholder="Enter username" value={username} onChange={this.handleChange}/>
           <label>Password:</label>

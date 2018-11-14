@@ -38,25 +38,26 @@ class Profile extends Component {
 
   render() {
     const { profile, isLoading, playlist} = this.state;
+        console.log(this.props.user)
 
     return (
-      <div className="container">
+      <div className="container text-center justify-content-center row">
       <Grid>
         <Row>
-        { isLoading ? <h1>Loading....</h1> : <div>{profile}</div>
-        }
+        {/* { isLoading ? <h1>Loading....</h1> : <div>{profile}</div>
+        } */}
         <Col xs={6} md={4}>
             <Image src="/../avatar.jpeg" rounded responsive/>
         </Col>
         <Col xs={6} md={4}>
         <Row>
-          <h4>Hey {this.props.user.username}! </h4>
+          <h4>hey {this.props.user.username} </h4>
 
             {/* <h5>{this.props.user.favorites.map((favorite) => {
               return <PlaylistCard key={playlist._id} playlist={playlist} onDelete={this.handleDelete}/>
             }) }
             </h5> */}
-              <div className="row"></div>
+              <div className="container text-center justify-content-center row"></div>
         </Row>
         <Link to={'/create'}>Add a playlist</Link>
           </Col>

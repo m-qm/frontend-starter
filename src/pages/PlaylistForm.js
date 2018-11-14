@@ -5,10 +5,10 @@ import { withRouter } from 'react-router-dom';
 
 class PlaylistForm extends Component {
   state = {
-    owner: "",
-    title: "",
-    link: "",
-    styles: ""
+    owner: this.props.user._id,
+    title: '',
+    link: '',
+    styles: ''
   }
 
   handleFormSubmit = (event) => {
@@ -39,36 +39,37 @@ class PlaylistForm extends Component {
     } )
   } 
 
-  handleSelectChange = (event) => {
-    var stylesArr = this.state.styles.slice();
-      let index = stylesArr.indexOf(event.target.value)
-      if(index >-1) {
-        stylesArr.splice(index, 1)
-      }
-    else {
-      stylesArr.push(event.target.value);
-    }
-    console.log(this.state.styles,stylesArr);
-    this.setState({[event.target.name]: stylesArr})
-  }
+  // handleSelectChange = (event) => {
+  //   var stylesArr = this.state.styles.slice();
+  //     let index = stylesArr.indexOf(event.target.value)
+  //     if(index >-1) {
+  //       stylesArr.splice(index, 1)
+  //     }
+  //   else {
+  //     stylesArr.push(event.target.value);
+  //   }
+  //   console.log(this.state.styles,stylesArr);
+  //   this.setState({[event.target.name]: stylesArr})
+  // }
 
   render() {
     const { title, link, styles } = this.state;
     
     return (
-      <div className="container">
-      <div className="row">
+      <div className="container text-center justify-content-center">
+      <div className="row ">
         <h1>Create your playlist</h1>
       </div>
       <div className="row">
       <div className="form-group">
 
-        <form onSubmit={this.handleFormSubmit}>
-          <input type="text" value={title} name="title" placeholder="Your title" onChange={this.handleInputChange} />
-          <input type="text" value={link} name="link" placeholder="Your link" onChange={this.handleInputChange}/>
-          <label>
+        <form className="form-group col-sm-4 mx-auto" onSubmit={this.handleFormSubmit}>
+          <input type="text" className="form-control" value={title} name="title" placeholder="Your title" onChange={this.handleInputChange} />
+          <input type="text" className="form-control" value={link} name="link" placeholder="Your link" onChange={this.handleInputChange}/>
+          <input type="text" className="form-control" value={styles} name="link" placeholder="Your styles" onChange={this.handleInputChange}/>
+          {/* <label>
             Playlist styles
-            <select value={styles} onChange={this.handleSelectChange}>
+            <select value={styles} onChange={this.handleInputChange}>
               <option value="Pop">Pop</option>
               <option value="Reggae">Reggae</option>
               <option value="Rock">Rock</option>
@@ -77,7 +78,7 @@ class PlaylistForm extends Component {
               <option value="Metal">Metal</option>
               <option value="Bachata">Bachata</option>
             </select>
-          </label> 
+          </label>  */}
           <input type="submit" value="Submit"/>
         </form>
       </div>

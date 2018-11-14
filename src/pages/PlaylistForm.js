@@ -2,14 +2,13 @@ import React, { Component } from 'react'
 import { withAuth } from '../lib/authContext';
 import playlistService from '../lib/playlistservice';
 import { withRouter } from 'react-router-dom';
-import { FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
 
 class PlaylistForm extends Component {
   state = {
     owner: "",
     title: "",
     link: "",
-    styles: []
+    styles: ""
   }
 
   handleFormSubmit = (event) => {
@@ -67,18 +66,18 @@ class PlaylistForm extends Component {
         <form onSubmit={this.handleFormSubmit}>
           <input type="text" value={title} name="title" placeholder="Your title" onChange={this.handleInputChange} />
           <input type="text" value={link} name="link" placeholder="Your link" onChange={this.handleInputChange}/>
-            <FormGroup controlId={""}>
-                <ControlLabel>Styles</ControlLabel>
-                <FormControl componentClass="select" multiple name="styles" onChange={this.handleSelectChange}>
-                <option value="Pop">Pop</option>
-                <option value="Reggae">Reggae</option>
-                <option value="Rock">Rock</option>
-                <option value="Flamenco">Flamenco</option>
-                <option value="Techno">Techno</option>
-                <option value="Metal">Metal</option>
-                <option value="Bachata">Bachata</option>
-              </FormControl>
-            </FormGroup>
+          <label>
+            Playlist styles
+            <select value={styles} onChange={this.handleSelectChange}>
+              <option value="Pop">Pop</option>
+              <option value="Reggae">Reggae</option>
+              <option value="Rock">Rock</option>
+              <option value="Flamenco">Flamenco</option>
+              <option value="Techno">Techno</option>
+              <option value="Metal">Metal</option>
+              <option value="Bachata">Bachata</option>
+            </select>
+          </label> 
           <input type="submit" value="Submit"/>
         </form>
       </div>

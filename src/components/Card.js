@@ -9,7 +9,8 @@ class PlaylistCard extends Component {
 
   state = {
     playlist: "",
-    id: ""
+    id: "",
+    styles: ""
   }
 
   iframe = () => {

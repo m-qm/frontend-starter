@@ -12,6 +12,8 @@ import PlaylistEdit from './pages/PlaylistEdit';
 import ProfileCreate from './pages/ProfileCreate';
 import ProfileEdit from './pages/ProfileEdit';
 import AuthContext from './lib/authContext';
+import 'bootstrap/dist/css/bootstrap.css';
+
 
 class App extends Component {
   render() {

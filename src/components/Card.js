@@ -10,11 +10,8 @@ class PlaylistCard extends Component {
   state = {
     playlist: "",
     id: "",
-<<<<<<< HEAD
-    isFavorite: this.props.playlist.favorite
-=======
+    isFavorite: this.props.playlist.favorite,
     styles: ""
->>>>>>> b35fc3ce27cc3be150a70baa954ed50f86fd0847
   }
 
   iframe = () => {

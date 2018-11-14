@@ -48,12 +48,12 @@ class PlaylistDetail extends Component {
     return(
       <div className="container">
         <h1>{this.state.data.title}</h1>
-        <div className="video-container">
+          <div className="video-container">
             <i>{this.state.data.link}</i>
             <p>{this.state.data.styles}</p>
             <Link to={'/playlist'}>Back to playlists</Link>
           </div>
-        </div>
+      </div>
     )
   }
 }

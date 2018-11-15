@@ -42,7 +42,7 @@ class Profile extends Component {
   render() {
     return (
       <div>
-      <div className="container text-center justify-content-center row">
+      <div className="container text-center justify-content-center">
       <Grid>
         <Row>
         <Col xs={6} md={4}>
@@ -59,7 +59,6 @@ class Profile extends Component {
         <Row>
           <h4>Welcome {this.state.user.username} </h4>
 
-          <div className="row text-center justify-content-center row"></div>
         </Row>
         
         <Link to={'/create'}>Add a playlist</Link>
@@ -72,14 +71,10 @@ class Profile extends Component {
           </Col>
         </Row>
         <Col xs={12} md={2}>
-            <section className="row justify-content video-profile">
             <Playlist>
             </Playlist>
-            </section>
           </Col>
-        <Col xs={12} md={2}>
-          <h3>Your Favorites</h3>
-          </Col>
+
       </Grid>
       </div>
       </div>

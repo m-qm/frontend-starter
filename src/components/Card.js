@@ -67,7 +67,7 @@ class PlaylistCard extends Component {
   render() {
     const { playlist } = this.props;
     return (
-      <div className="card">
+      <div className="card mx-4">
         <Grid>
           <Row>
             <Col xs={12} md={6}>
@@ -80,10 +80,13 @@ class PlaylistCard extends Component {
               <div className="video-container">
               <div className="video" dangerouslySetInnerHTML={this.iframe()}/>
                 </div>
+
             <form action="playlist/:id/delete" method="post">
+            <section className="profile-icons mx-auto">
               <Button className="btn-black-inline" onClick={this.deletePlaylist}>Delete</Button>
               <Button onClick={this.getSinglePlaylist}>Playlist Detail</Button>
               <i className="fas fa-heart"></i>
+            </section>
             </form>
             </Col>
           </Row>

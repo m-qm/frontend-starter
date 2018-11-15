@@ -30,7 +30,9 @@ video {
   margin-left: -7px;
   font-size: 15px;
   font-weight: bold;
-  padding-left: 7px;
+  padding-left: 12px;
+  padding-right: 12px;
+
 }
 
 .profile-info {
@@ -56,3 +58,11 @@ video {
 .playlist-profile {
   background-color:blue;
 }
+
+h1{
+  align-self: center;
+  color: #2727e6; text-decoration: none; transition: color 0.5s;
+  }
+  a:hover {
+  color: #111118;
+  }

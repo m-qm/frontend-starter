@@ -51,8 +51,8 @@ class Signup extends Component {
   render() {
     const { username, password } = this.state;
     return (
-    <div class="container mx-3 bg-3 text-center">    
-      <div class="row text-center justify-content-center" ></div>
+    <div className="container mx-3 bg-3 text-center">    
+      <div className="row text-center justify-content-center" ></div>
       <div className="col-md-6 col-md-offset-3 text-center"></div>
         <form className="form-group"
             onSubmit={this.handleFormSubmit}>

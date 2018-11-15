@@ -32,8 +32,8 @@ class EditPlaylist extends Component {
           <input type="text" value={email} name="email" placeholder="Your email" onChange={this.handleInputChange} />
         <label>Description:</label>
           <input type="text" value={city} name="city" placeholder="Your city" onChange={this.handleInputChange}/>
-          <textarea class="textarea" name="description" value={description} rows="5" cols="32" placeholder="Tell us about yourself..." onChange={this.handleInputChange}/>
-          <input type="submit" value="Submit"/>
+          <textarea class="textarea"  name="description" value={description} rows="5" cols="32" placeholder="Tell us about yourself..." onChange={this.handleInputChange}/>
+          <input bsStyle="primary" bsSize="small" type="submit" value="Submit"/>
         </form>
       </div>
     )

@@ -76,9 +76,9 @@ class PlaylistCard extends Component {
                 </div>
               </div>
             <form action="playlist/:id/delete" method="post">
-              <Button className="btn-black-inline" onClick={this.deletePlaylist}>Delete</Button>
-              <Button onClick={this.getSinglePlaylist}>Playlist Detail</Button>
-              <Button onClick={this.addToFavorites}>Add to Favorites</Button>
+              <Button  bsStyle="primary" className="btn-black-inline" onClick={this.deletePlaylist}>Delete</Button>
+              <Button bsStyle="primary" onClick={this.getSinglePlaylist}>Playlist Detail</Button>
+              <Button  bsStyle="primary" onClick={this.addToFavorites}>Add to Favorites</Button>
 
             </form>
             </Col>

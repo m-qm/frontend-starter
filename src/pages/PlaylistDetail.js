@@ -29,15 +29,14 @@ state = {
 
   deletePlaylist = (e) => {
     const id = this.props.playlist._id
-    console.log(id);
     
     playlistService.delete(id)
-      .then((result) => {
-        console.log("delete", result);
+      .then(() => {
         this.props.onDelete();
       })
       .catch((error) => {
-        console.log(error)
+        console.error("error")
+          
       })
   }
 
@@ -45,9 +44,7 @@ state = {
     const id = this.props.playlist._id
 
     playlistService.favorites(id)
-    .then((result) => {
-      console.log("added to favorites", result);
-    })
+
 
   }
  

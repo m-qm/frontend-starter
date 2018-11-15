@@ -50,8 +50,6 @@ class PlaylistCard extends Component {
 
     .then((result) => {
 
-      console.log("added to favorites", result);
-
     })
 
 
@@ -63,8 +61,6 @@ class PlaylistCard extends Component {
   getSinglePlaylist = (e) => {
 
     const id = this.props.playlist._id
-
-    console.log(id)
 
     this.props.history.push(`/playlist/${id}`)
 
@@ -84,8 +80,6 @@ class PlaylistCard extends Component {
 
       .then((result) => {
 
-        console.log("delete", result);
-
         this.props.onDelete();
 
       })
@@ -98,8 +92,7 @@ class PlaylistCard extends Component {
 
       .catch((error) => {
 
-        console.log(error)
-
+        console.error("error")
       })
 
   }

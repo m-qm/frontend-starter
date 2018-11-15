@@ -16,7 +16,7 @@ export default class PlaylistEdit extends Component {
       .then((user) => {
         this.props.setUser(user)
       })
-      .catch( error => console.log(error))
+      .catch( error => console.error("error"))
   }
 
   handleInputChange = (event) => {  
@@ -28,7 +28,6 @@ export default class PlaylistEdit extends Component {
   
   render() {
     const { email, styles, city, description} = this.state;
-    console.log("user", this.props.user)
     return (
       <div className="container">
         <form>

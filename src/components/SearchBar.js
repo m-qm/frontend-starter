@@ -9,14 +9,10 @@ class SearchBar extends Component {
 
   handleFormSubmit = (event) => {
     event.preventDefault();
-            console.log(this.state)
     const styles = this.state.styles
     
     playlistService.search(styles)
-      .then((res) => {
-        console.log(res)
-      })
-      .catch( error => console.log(error))
+      .catch( error => console.error("error"))
   }
 
   handleInputChange = (event) => {  

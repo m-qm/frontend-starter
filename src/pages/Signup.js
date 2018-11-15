@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
-
 import { Link } from 'react-router-dom';
-
 import auth from '../lib/auth-service';
-
 import { withAuth } from '../lib/authContext';
-
 
 
 class Signup extends Component {
@@ -29,9 +25,6 @@ class Signup extends Component {
     const username = this.state.username;
 
     const password = this.state.password;
-
-    console.log('hello', event)
-
 
 
     auth.signup({ username, password })
@@ -58,8 +51,8 @@ class Signup extends Component {
 
         const { data } = error.response;
 
-        console.log(data.error)
-
+        console.error("error")
+        
         switch (data.error) {
 
           case 'username-not-unique' :

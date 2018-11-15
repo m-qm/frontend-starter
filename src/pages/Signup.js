@@ -15,11 +15,6 @@ class Signup extends Component {
     event.preventDefault();
     const username = this.state.username;
     const password = this.state.password;
-<<<<<<< HEAD
-
-=======
-    console.log('hello', event)
->>>>>>> 72e637b8ff09549b0aa3fd00b6ef7ca9bfd58a09
 
     auth.signup({ username, password })
       .then( (user) => {
@@ -37,14 +32,7 @@ class Signup extends Component {
       })
       .catch( error => {
         const { data } = error.response;
-<<<<<<< HEAD
 
-        console.error("error")
-        
-=======
-        console.log(data.error)
-
->>>>>>> 72e637b8ff09549b0aa3fd00b6ef7ca9bfd58a09
         switch (data.error) {
           case 'username-not-unique' :
             this.setState({alert: 'This username is already taken.'});
@@ -73,14 +61,14 @@ class Signup extends Component {
       <div className="row justify-content text-center " >
         <form className="form-group col-sm-4 mx-auto"
             onSubmit={this.handleFormSubmit}>
-          <label for="username" className="form-label">Name:</label>
+          <label htmlFor="username" className="form-label">Name:</label>
           <input className="form-control text-center"
             type="text"
             name="username"
             placeholder="Enter username"
             value={username}
             onChange={this.handleChange}/>
-          <label for="inputPassword" class="form-label">Password:</label>
+          <label htmlFor="inputPassword" className="form-label">Password:</label>
           <input className="form-control text-center"
             type="password"
             name="password"

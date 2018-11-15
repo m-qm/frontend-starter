@@ -78,7 +78,6 @@ class PlaylistCard extends Component {
               <div className="video-container">
               <div className="video" dangerouslySetInnerHTML={this.iframe()}/>
                 </div>
-
             <form action="playlist/:id/delete" method="post">
             <section className="profile-icons mx-auto">
               <Button className="btn-black-inline" onClick={this.deletePlaylist}>Delete</Button>

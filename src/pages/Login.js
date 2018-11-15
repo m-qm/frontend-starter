@@ -53,9 +53,9 @@ class Login extends Component {
     <div className="container bg-6 text-center">    
       <div className="row text-center justify-content-center">
         <form className="form-group col-sm-4 mx-auto" onSubmit={this.handleFormSubmit}>
-          <label for="Username">Username:</label>
+          <label htmlFor="Username">Username:</label>
           <input className="form-control" type="text" name="username" placeholder="Enter username" value={username} onChange={this.handleChange}/>
-          <label for="Password">Password:</label>
+          <label htmlFor="Password">Password:</label>
           <input className="form-control" type="password" name="password"  placeholder="Enter password" value={password} onChange={this.handleChange}/>
           <button className="btn btn-outline mx-3" type="submit" value="login">Log in</button>
         </form>

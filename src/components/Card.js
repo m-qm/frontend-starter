@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import { withRouter, Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { Button, Grid, Row, Col } from 'react-bootstrap';
-// import { withAuth } from '../lib/authContext';
 import playlistService from '../lib/playlistservice';
 
 
@@ -31,7 +30,6 @@ class PlaylistCard extends Component {
 
 
   addToFavorites = (e) => {
-    // const playlist = this.props;
     const id = this.props.playlist._id;
 
     playlistService.favorites(id)
@@ -45,13 +43,7 @@ class PlaylistCard extends Component {
     const id = this.props.playlist._id
     console.log(id)
     this.props.history.push(`/playlist/${id}`)
-    // playlistService.listOnePlaylist(id)
-    //   .then((result) => {
-    //     this.setState({
-    //       playlist: result,
-    //       isLoading: false
-    //     })
-    //   })
+
   }
 
   deletePlaylist = (e) => {
@@ -74,7 +66,6 @@ class PlaylistCard extends Component {
 
   render() {
     const { playlist } = this.props;
-    // const { isFavorite } = this.state;
     return (
       <div className="card">
         <Grid>

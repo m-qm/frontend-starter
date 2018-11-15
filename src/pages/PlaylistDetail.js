@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import playlistService from '../lib/playlistservice';
 import PlaylistCard from '../components/Card';
-// import EditPlaylist from './EditPlaylist';
 
 class PlaylistDetail extends Component {
   
@@ -10,33 +9,6 @@ class PlaylistDetail extends Component {
     data: []
   }
 
-  //   iframe = () => {
-  //   const { data } = this.props;
-  //   return { __html: data.link }
-  // }
-
-  // componentDidMount(){
-  //   this.update();
-  // }
-
-  // update = () => {
-  //   this.setState({
-  //     isLoading: true,
-  //   });
-
-  //   const id = this.props.match.params.id
-  //   playlistService.listOnePlaylist(id)
-  //   .then((data) => {
-  //     console.log("data", data)
-  //     this.setState({
-  //       data: data,
-  //       isLoading: false
-  //     })
-  //   })
-  //   .catch((error) => {
-  //     console.log(error);
-  //   })
-  // }
 
 state = {
     playlist: "",
@@ -53,18 +25,10 @@ state = {
   getSinglePlaylist = (e) => {
     const id = this.props.playlist._id
     this.props.history.push(`/playlist/${id}`)
-    // playlistService.listOnePlaylist(id)
-    //   .then((result) => {
-    //     this.setState({
-    //       playlist: result,
-    //       isLoading: false
-    //     })
-    //   })
   }
 
   deletePlaylist = (e) => {
     const id = this.props.playlist._id
-    // const currentUser = this.props.user._id
     console.log(id);
     
     playlistService.delete(id)

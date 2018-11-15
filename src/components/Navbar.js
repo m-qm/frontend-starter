@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { withRouter } from 'react-router-dom';
 import { withAuth } from '../lib/authContext';
-// import { BrowserRouter as Router } from 'react-router-dom';
 import {Nav, Navbar, NavItem} from 'react-bootstrap';
 import SearchBar from './SearchBar';
 

@@ -40,7 +40,6 @@ class Profile extends Component {
   }
 
   render() {
-    // const { profile, isLoading,user } = this.props;
     return (
       <div>
       <div className="container text-center justify-content-center row">

@@ -79,7 +79,7 @@ class Signup extends Component {
         </form>
         </div>
       <p>{this.state.alert}</p>
-        <p>Already have account? 
+        <p>Already have an account? 
           <Link to={"/login"}> Login</Link>          
         </p>
     </div>

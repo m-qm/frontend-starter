@@ -22,8 +22,6 @@ class App extends Component {
     return (
       <AuthContext>
           <Navigation />
-          <div className="container">
-          </div>
             <Switch>
               <PublicRoute path="/home" component={Home} />
               <PublicRoute path="/signup" component={Signup} />
@@ -36,7 +34,6 @@ class App extends Component {
               <PrivateRoute exact path="/profile" component={Profile} />
               <PrivateRoute path="/profile/create" component={ProfileCreate} />
               <PrivateRoute exact path="/profile/edit" component={ProfileEdit} />
-
             </Switch>
       </AuthContext>
     )

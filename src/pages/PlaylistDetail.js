@@ -9,7 +9,6 @@ class PlaylistDetail extends Component {
     data: []
   }
 
-
 state = {
     playlist: "",
     id: "",
@@ -31,23 +30,23 @@ state = {
     const id = this.props.playlist._id
     
     playlistService.delete(id)
-      .then(() => {
+      .then((result) => {
+        console.log("delete", result);
         this.props.onDelete();
       })
       .catch((error) => {
-        console.error("error")
-          
+        console.log(error)
       })
   }
 
   addToFavorites = (e) => {
     const id = this.props.playlist._id
-
     playlistService.favorites(id)
-
+    .then((result) => {
+      console.log("added to favorites", result);
+    })
 
   }
- 
  
   render() {
     const { playlist , isLoading } = this.state;

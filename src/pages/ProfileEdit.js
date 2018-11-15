@@ -44,17 +44,17 @@ class ProfileEdit extends Component {
             <div className="row justify-content text-left ">
               <div className="form-group">
                 <form className="form-group col-sm-4 mx-auto" onSubmit={this.handleFormSubmit}>
-                  <label for="name" className="form-label">Name:</label>
+                  <label htmlFor="username" className="form-label">Name:</label>
                   <input type="text" className="form-control" value={name} name="name" placeholder="Your name" onChange={this.handleInputChange} />
-                  <label for="Email" className="form-label">Email:</label>
+                  <label htmlFor="Email" className="form-label">Email:</label>
                   <input type="text" className="form-control" value={email} name="email" placeholder="Your email" onChange={this.handleInputChange} />
-                  <label for="city" className="form-label">City:</label>
+                  <label htmlFor="city" className="form-label">City:</label>
                   <input type="text" className="form-control" value={city} name="city" placeholder="Your city" onChange={this.handleInputChange}/>
-                  <label for="city" className="form-label">Description:</label>
+                  <label htmlFor="city" className="form-label">Description:</label>
                   <textarea className="form-control"name="description" value={description} rows="5" cols="32" placeholder="Tell us about yourself..." onChange={this.handleInputChange}/>
-                  <label for="styles" className="form-label">Styles:</label>
+                  <label htmlFor="styles" className="form-label">Styles:</label>
                   <textarea className="form-control" name="styles" value={styles} rows="5" cols="32" placeholder="Styles" onChange={this.handleInputChange}/>
-                  <input type="submit" value="Submit"/>
+                  <input type="submit" value="submit"/>
                 </form>
             </div>
           </div>

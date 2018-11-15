@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom';
-import { Button, Grid, Row, Col } from 'react-bootstrap';
+import { Grid, Row, Col } from 'react-bootstrap';
 import playlistService from '../lib/playlistservice';
 
 
@@ -65,7 +65,7 @@ class PlaylistCard extends Component {
   render() {
     const { playlist } = this.props;
     return (
-      <div className="card mx-4">
+      <div className="card mx-4 text-center">
         <Grid>
           <Row>
             <Col xs={12} md={6}>
@@ -75,13 +75,12 @@ class PlaylistCard extends Component {
             <h5> 
               {playlist.styles}
             </h5> 
-              <div className="video-container">
+              <div className="video-container text-center">
               <div className="video" dangerouslySetInnerHTML={this.iframe()}/>
                 </div>
             <form action="playlist/:id/delete" method="post">
-            <section className="profile-icons mx-auto">
-              <Button className="btn-black-inline" onClick={this.deletePlaylist}>Delete</Button>
-              <Button onClick={this.getSinglePlaylist}>Playlist Detail</Button>
+            <section className="profile-icons mx-auto text-center">
+              <i className="far fa-trash-alt" onClick={this.deletePlaylist}></i>
               <i className="fas fa-heart"></i>
             </section>
             </form>

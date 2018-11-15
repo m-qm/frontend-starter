@@ -42,7 +42,7 @@ class Playlist extends Component {
     const { playlist, isLoading } = this.state;
     return (
       <div>
-      <div className="container">
+      <div className="container text-center">
         <h1>Playlists</h1>
         </div>
         { isLoading ? <h1>Loading....</h1> : playlist.map((playlist) => {

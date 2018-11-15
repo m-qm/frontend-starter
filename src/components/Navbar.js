@@ -42,7 +42,7 @@ class Navigation extends Component {
     const { isLogged } = this.props;
     return (
       <Navbar bg="dark" variant="dark">
-        <Navbar.Header className="justify-content-end" >
+        <Navbar.Header className="justify-content-end pt-3" >
           <Navbar.Brand>
             <h4>mTrap</h4> 
           </Navbar.Brand>

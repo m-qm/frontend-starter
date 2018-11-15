@@ -70,12 +70,10 @@ class Profile extends Component {
         <Link to={'/profile/edit'}>Edit Profile</Link>
           </Col>
         </Row>
-        <Col xs={12} md={2}>
-            <Playlist>
-            </Playlist>
-          </Col>
 
       </Grid>
+            <Playlist>
+            </Playlist>
       </div>
       </div>
 

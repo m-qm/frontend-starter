@@ -6,7 +6,7 @@ body {
   height: 125vh;
   background-image: url('./bg.jpg');
   background-size: cover;
-  font-family:  'Hind Madurai Bold', sans-serif;
+  font-family: 'Roboto Slab', serif;
 
 }
 
@@ -26,6 +26,7 @@ video {
   margin-bottom: 0;
   font-size: 12px;
   letter-spacing: 10px;
+  justify-content: space-between;
   background: none;
   margin-left: -7px;
   font-size: 15px;

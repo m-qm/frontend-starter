@@ -11,12 +11,9 @@ import { withAuth } from '../lib/authContext';
 class Signup extends Component {
 
   state = {
-
     username: "",
     password: "",
-
   };
-
   handleFormSubmit = (event) => {
 
     event.preventDefault();
@@ -59,7 +56,6 @@ class Signup extends Component {
   handleChange = (event) => {  
 
     const {name, value} = event.target;
-
     this.setState({[name]: value});
 
   }

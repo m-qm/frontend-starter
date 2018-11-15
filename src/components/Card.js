@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { withRouter, Link } from 'react-router-dom';
 import { Button, Grid, Row, Col } from 'react-bootstrap';
-
 // import { withAuth } from '../lib/authContext';
 import playlistService from '../lib/playlistservice';
 
@@ -20,8 +19,31 @@ class PlaylistCard extends Component {
     return { __html: playlist.link }
   }
 
+   componentDidMount() {
+    this.update()
+  }
+
+   update = () => {
+    this.setState({
+      isLoading: true,
+    });
+   }
+
+
+  addToFavorites = (e) => {
+    // const playlist = this.props;
+    const id = this.props.playlist._id;
+
+    playlistService.favorites(id)
+    .then((result) => {
+      console.log("added to favorites", result);
+    })
+
+  }
+
   getSinglePlaylist = (e) => {
     const id = this.props.playlist._id
+    console.log(id)
     this.props.history.push(`/playlist/${id}`)
     // playlistService.listOnePlaylist(id)
     //   .then((result) => {
@@ -34,8 +56,6 @@ class PlaylistCard extends Component {
 
   deletePlaylist = (e) => {
     const id = this.props.playlist._id
-    // const currentUser = this.props.user._id
-    console.log(id);
     
     playlistService.delete(id)
       .then((result) => {
@@ -47,19 +67,14 @@ class PlaylistCard extends Component {
       })
   }
 
-  addToFavorites = (e) => {
-    const id = this.props.playlist._id
-
-    playlistService.favorites(id)
-    .then((result) => {
-      console.log("added to favorites", result);
-    })
-
+    handleDelete = () => {
+    this.update()
   }
+
 
   render() {
     const { playlist } = this.props;
-    // const { isLogged } = this.props;
+    // const { isFavorite } = this.state;
     return (
       <div className="card">
         <Grid>
@@ -75,11 +90,9 @@ class PlaylistCard extends Component {
               <div className="video" dangerouslySetInnerHTML={this.iframe()}/>
                 </div>
             <form action="playlist/:id/delete" method="post">
-              <Button className="btn-black-inline ml-1 mr-1" onClick={this.deletePlaylist}>Delete</Button>
+              <Button className="btn-black-inline" onClick={this.deletePlaylist}>Delete</Button>
               <Button onClick={this.getSinglePlaylist}>Playlist Detail</Button>
-              <div className="row space-between mx-3">
-              <i className="fas fa-heart"></i><Link onClick={this.addToFavorites}>Add to Favorites</Link>
-              </div>
+              <i className="fas fa-heart"></i>
             </form>
             </Col>
           </Row>

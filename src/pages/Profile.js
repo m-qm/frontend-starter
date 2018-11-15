@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { withAuth } from '../lib/authContext';
 import { Link } from 'react-router-dom';
 import auth from '../lib/auth-service';
+import Playlist from '../pages/Playlist';
+
 
 import {
   Grid,
@@ -15,14 +17,8 @@ class Profile extends Component {
   state = {
     user: '',
     isLoading: true,
-
+    
   }
-
-  iframe = () => {
-  const { data } = this.props;
-  return { __html: data.link }
-     }
-
 
   componentDidMount() {
     this.update()
@@ -46,31 +42,25 @@ class Profile extends Component {
   render() {
     // const { profile, isLoading,user } = this.props;
     return (
-      <div className="container">
-        <div className="container text-center justify-content-center row">
+      <div>
+      <div className="container text-center justify-content-center row">
       <Grid>
         <Row>
-        {/* { isLoading ? <h1>Loading....</h1> : <div>{profile}</div>
-        } */}
         <Col xs={6} md={4}>
             <Image className="profile-pic" src="/../avatar.jpg" rounded responsive/>
             <section className="profile-icons mx-auto">
-            <i className="fa fa-camera-retro"></i>
-            <i className="fab fa-soundcloud"></i>
-            <i className="fab fa-facebook-f"></i>
-            <i className="fa fa-bandcamp"></i>
-            <i className="fab fa-spotify"></i>
+              <i className="fa fa-camera-retro"></i>
+              <i className="fab fa-soundcloud"></i>
+              <i className="fab fa-facebook-f"></i>
+              <i className="fab fa-bandcamp"></i>
+              <i className="fab fa-spotify"></i>
             </section>
       </Col>
         <Col xs={6} md={4}>
         <Row>
           <h4>Welcome {this.state.user.username} </h4>
 
-            {/* <h5>{this.props.user.favorites.map((favorite) => {
-              return <PlaylistCard key={playlist._id} playlist={playlist} onDelete={this.handleDelete}/>
-            }) }
-            </h5> */}
-              <div className="container text-center justify-content-center row"></div>
+          <div className="row text-center justify-content-center row"></div>
         </Row>
         
         <Link to={'/create'}>Add a playlist</Link>
@@ -83,9 +73,9 @@ class Profile extends Component {
           </Col>
         </Row>
         <Col xs={12} md={2}>
-          <h3>Your Playlists</h3>
-            <section className="video-profile">
-            {/* <div className="video" dangerouslySetInnerHTML={this.iframe('https://vimeo.com/119294820')}/> */}
+            <section className="row justify-content video-profile">
+            <Playlist>
+            </Playlist>
             </section>
           </Col>
         <Col xs={12} md={2}>
@@ -93,7 +83,7 @@ class Profile extends Component {
           </Col>
       </Grid>
       </div>
-     </div>
+      </div>
 
     )
   }

@@ -23,7 +23,7 @@ class Playlist extends Component {
     playlistService.listPlaylist()
       .then((result) => {
         this.setState({
-          playlists: result,
+          playlist: result,
           isLoading: false
         })
       })
@@ -39,11 +39,11 @@ class Playlist extends Component {
   
 
   render() {
-    const { playlists, isLoading } = this.state;
+    const { playlist, isLoading } = this.state;
     return (
       <div className="container text-center justify-content-center row">
         <h1>Playlists</h1>
-        { isLoading ? <h1>Loading....</h1> : playlists.map((playlist) => {
+        { isLoading ? <h1>Loading....</h1> : playlist.map((playlist) => {
           return <PlaylistCard key={playlist._id} playlist={playlist} onDelete={this.handleDelete} onAdd={this.addToFavorites}/>
         })}
       </div>

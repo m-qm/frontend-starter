@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
-
 import { Link } from 'react-router-dom';
-
 import auth from '../lib/auth-service';
-
 import { withAuth } from '../lib/authContext';
-
 
 
 class Signup extends Component {
@@ -19,7 +15,11 @@ class Signup extends Component {
     event.preventDefault();
     const username = this.state.username;
     const password = this.state.password;
+<<<<<<< HEAD
+
+=======
     console.log('hello', event)
+>>>>>>> 72e637b8ff09549b0aa3fd00b6ef7ca9bfd58a09
 
     auth.signup({ username, password })
       .then( (user) => {
@@ -37,8 +37,14 @@ class Signup extends Component {
       })
       .catch( error => {
         const { data } = error.response;
+<<<<<<< HEAD
+
+        console.error("error")
+        
+=======
         console.log(data.error)
 
+>>>>>>> 72e637b8ff09549b0aa3fd00b6ef7ca9bfd58a09
         switch (data.error) {
           case 'username-not-unique' :
             this.setState({alert: 'This username is already taken.'});

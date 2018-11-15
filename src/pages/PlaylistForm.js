@@ -18,7 +18,7 @@ class PlaylistForm extends Component {
       .then(() => {
         this.props.history.push("/playlist")
       })
-      .catch( error => console.log(error))
+      .catch( error => console.error("error"))
   }
 
   handleInputChange = (event) => {  

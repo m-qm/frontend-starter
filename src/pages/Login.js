@@ -23,7 +23,6 @@ class Login extends Component {
     })
     .catch( error => {
       const { data } = error.response;
-      console.log(data.error);
       switch (data.error) {
         case 'Invalid password or username' :
           this.setState({alert: 'Invalid email or password.'});

@@ -34,14 +34,12 @@ class PlaylistCard extends Component {
 
     playlistService.favorites(id)
     .then((result) => {
-      console.log("added to favorites", result);
     })
 
   }
 
   getSinglePlaylist = (e) => {
     const id = this.props.playlist._id
-    console.log(id)
     this.props.history.push(`/playlist/${id}`)
 
   }
@@ -51,11 +49,11 @@ class PlaylistCard extends Component {
     
     playlistService.delete(id)
       .then((result) => {
-        console.log("delete", result);
         this.props.onDelete();
       })
       .catch((error) => {
-        console.log(error)
+
+        console.error("error")
       })
   }
 

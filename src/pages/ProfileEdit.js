@@ -19,11 +19,10 @@ class ProfileEdit extends Component {
     const { name, email, city, description, styles } = this.state
     auth.update({ name, email, styles, city, description}) 
     .then((user) => {
-      console.log(user)
       this.props.setUser(user)
       this.props.history.push("/profile")
     })
-    .catch( error => console.log(error))
+    .catch( error => console.error("error"))
   }
 
   handleInputChange = (event) => {  

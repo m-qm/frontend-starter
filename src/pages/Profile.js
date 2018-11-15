@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { withAuth } from '../lib/authContext';
 import { Link } from 'react-router-dom';
 import auth from '../lib/auth-service';
+
 import {
   Grid,
   Row,
@@ -14,7 +15,13 @@ class Profile extends Component {
   state = {
     user: '',
     isLoading: true,
+
   }
+
+  iframe = () => {
+  const { data } = this.props;
+  return { __html: data.link }
+     }
 
 
   componentDidMount() {
@@ -37,7 +44,7 @@ class Profile extends Component {
   }
 
   render() {
-    const { profile, isLoading,user } = this.props;
+    // const { profile, isLoading,user } = this.props;
     return (
       <div className="container">
         <div className="container text-center justify-content-center row">
@@ -46,8 +53,15 @@ class Profile extends Component {
         {/* { isLoading ? <h1>Loading....</h1> : <div>{profile}</div>
         } */}
         <Col xs={6} md={4}>
-            <Image className="profile-pic" src="/../avatar.jpeg" rounded responsive/>
-        </Col>
+            <Image className="profile-pic" src="/../avatar.jpg" rounded responsive/>
+            <section className="profile-icons mx-auto">
+            <i className="fa fa-camera-retro"></i>
+            <i className="fab fa-soundcloud"></i>
+            <i className="fab fa-facebook-f"></i>
+            <i className="fa fa-bandcamp"></i>
+            <i className="fab fa-spotify"></i>
+            </section>
+      </Col>
         <Col xs={6} md={4}>
         <Row>
           <h4>Welcome {this.state.user.username} </h4>
@@ -58,6 +72,7 @@ class Profile extends Component {
             </h5> */}
               <div className="container text-center justify-content-center row"></div>
         </Row>
+        
         <Link to={'/create'}>Add a playlist</Link>
           </Col>
         <Col xs={6} md={4}>
@@ -68,10 +83,13 @@ class Profile extends Component {
           </Col>
         </Row>
         <Col xs={12} md={2}>
-          <h2>Your Playlists</h2>
+          <h3>Your Playlists</h3>
+            <section className="video-profile">
+            {/* <div className="video" dangerouslySetInnerHTML={this.iframe('https://vimeo.com/119294820')}/> */}
+            </section>
           </Col>
         <Col xs={12} md={2}>
-          <h2>Your Favorites</h2>
+          <h3>Your Favorites</h3>
           </Col>
       </Grid>
       </div>

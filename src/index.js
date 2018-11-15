@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 import App from './App';
-import index from './index.css'
+// eslint-disable-next-line no-unused-vars
+import style from './index.css'
 
 
 ReactDOM.render(

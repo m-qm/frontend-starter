@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-// Project dependencies
-/// Components
-import Navbar from '../components/Navbar';
 
-// Home
 class Home extends Component {
   
   render() {
@@ -28,5 +24,4 @@ class Home extends Component {
   }
 }
 
-// Export
 export default Home;

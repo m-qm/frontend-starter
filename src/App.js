@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
 import PrivateRoute from './components/PrivateRoute';
 import PublicRoute from './components/PublicRoute';
 import Navigation from './components/Navbar';
@@ -31,7 +31,7 @@ class App extends Component {
               <PrivateRoute exact path="/playlist" component={Playlist} />
               <PrivateRoute exact path="/playlistedit" component={PlaylistEdit}/>
               <PrivateRoute path="/playlist/create" component={PlaylistForm} />
-              <PrivateRoute path="/playlist/:id" component={PlaylistDetail} />
+              <PrivateRoute path="/playlist/:id/playlistdetail" component={PlaylistDetail} />
               <PrivateRoute path="/create" component={PlaylistForm} />
               <PrivateRoute exact path="/profile" component={Profile} />
               <PrivateRoute path="/profile/create" component={ProfileCreate} />

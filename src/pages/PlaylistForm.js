@@ -14,7 +14,6 @@ class PlaylistForm extends Component {
   handleFormSubmit = (event) => {
     event.preventDefault();
     //const { title, link, styles } = this.state;
-    console.log(this.state)
     playlistService.create(this.state)
 
       .then(() => {
@@ -24,20 +23,19 @@ class PlaylistForm extends Component {
   }
 
   handleInputChange = (event) => {  
-    console.log(event.target.name, event.target.value)
     const {name, value } = event.target;
     this.setState({[name]: value});
   }
 
-  findByName(value, array){
-    array.map((v, i) => {
-      if(value === v){
-        console.log('found!')
-        return i
-      }
-      return -1
-    } )
-  } 
+  // findByName(value, array){
+  //   array.map((v, i) => {
+  //     if(value === v){
+  //       console.log('found!')
+  //       return i
+  //     }
+  //     return -1
+  //   } )
+  // } 
 
   // handleSelectChange = (event) => {
   //   var stylesArr = this.state.styles.slice();
@@ -66,7 +64,7 @@ class PlaylistForm extends Component {
         <form className="form-group col-sm-4 mx-auto" onSubmit={this.handleFormSubmit}>
           <input type="text" className="form-control" value={title} name="title" placeholder="Your title" onChange={this.handleInputChange} />
           <input type="text" className="form-control" value={link} name="link" placeholder="Your link" onChange={this.handleInputChange}/>
-          <input type="text" className="form-control" value={styles} name="link" placeholder="Your styles" onChange={this.handleInputChange}/>
+          <input type="text" className="form-control" value={styles} name="styles" placeholder="Your styles" onChange={this.handleInputChange}/>
           {/* <label>
             Playlist styles
             <select value={styles} onChange={this.handleInputChange}>

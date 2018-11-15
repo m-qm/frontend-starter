@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import { Button, Grid, Row, Col } from 'react-bootstrap';
+
 // import { withAuth } from '../lib/authContext';
 import playlistService from '../lib/playlistservice';
 
@@ -21,7 +22,6 @@ class PlaylistCard extends Component {
 
   getSinglePlaylist = (e) => {
     const id = this.props.playlist._id
-    console.log(id)
     this.props.history.push(`/playlist/${id}`)
     // playlistService.listOnePlaylist(id)
     //   .then((result) => {
@@ -65,7 +65,6 @@ class PlaylistCard extends Component {
         <Grid>
           <Row>
             <Col xs={12} md={6}>
-            <div className="container-fluid">
             <h3> 
               {playlist.title}
             </h3>
@@ -75,12 +74,12 @@ class PlaylistCard extends Component {
               <div className="video-container">
               <div className="video" dangerouslySetInnerHTML={this.iframe()}/>
                 </div>
-              </div>
             <form action="playlist/:id/delete" method="post">
-              <Button className="btn-black-inline" onClick={this.deletePlaylist}>Delete</Button>
+              <Button className="btn-black-inline ml-1 mr-1" onClick={this.deletePlaylist}>Delete</Button>
               <Button onClick={this.getSinglePlaylist}>Playlist Detail</Button>
-              <Button onClick={this.addToFavorites}>Add to Favorites</Button>
-
+              <div className="row space-between mx-3">
+              <i className="fas fa-heart"></i><Link onClick={this.addToFavorites}>Add to Favorites</Link>
+              </div>
             </form>
             </Col>
           </Row>

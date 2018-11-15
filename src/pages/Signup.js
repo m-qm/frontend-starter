@@ -52,18 +52,17 @@ class Signup extends Component {
     const { username, password } = this.state;
     return (
     <div className="container mx-3 bg-3 text-center">    
-      <div className="row text-center justify-content-center" ></div>
-      <div className="col-md-6 col-md-offset-3 text-center">
-        <form className="form-group"
+      <div className="row justify-content text-center " >
+        <form className="form-group col-sm-4 mx-auto"
             onSubmit={this.handleFormSubmit}>
-          <label for="username" className="form-label">Name</label>
+          <label for="username" className="form-label">Name:</label>
           <input className="form-control text-center"
             type="text"
             name="username"
             placeholder="Enter username"
             value={username}
             onChange={this.handleChange}/>
-          <label for="inputPassword" class="form-label">Password</label>
+          <label for="inputPassword" class="form-label">Password:</label>
           <input className="form-control text-center"
             type="password"
             name="password"
@@ -73,15 +72,12 @@ class Signup extends Component {
           <button className="btn btn-outline" type="submit" value="signup">Sign up</button>
         </form>
         </div>
-    
       <p>{this.state.alert}</p>
         <p>Already have account? 
           <Link to={"/login"}> Login</Link>
+          
         </p>
     </div>
-
-            
-
     )
   }
 }

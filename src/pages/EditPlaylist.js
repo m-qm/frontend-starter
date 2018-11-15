@@ -14,8 +14,6 @@ class EditPlaylist extends Component {
 
   handleFormSubmit = (event) => {
     event.preventDefault();
-    const { email, city, description } = this.state
-
   }
 
   handleInputChange = (event) => {  
@@ -24,7 +22,7 @@ class EditPlaylist extends Component {
   }
   
   render() {
-    const { email, styles, city, description} = this.state;
+    const { email, city, description} = this.state;
     return (
       <div>
         <form onSubmit={this.handleFormSubmit}>

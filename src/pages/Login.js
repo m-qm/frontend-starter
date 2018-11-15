@@ -50,22 +50,20 @@ class Login extends Component {
   render() {
     const { username, password} = this.state;
     return (
-      <div className="container bg-3 text-center">    
+    <div className="container bg-6 text-center">    
       <div className="row text-center justify-content-center">
-        <div className="col-md-6 col-md-offset-3 text-center"></div>
         <form className="form-group col-sm-4 mx-auto" onSubmit={this.handleFormSubmit}>
-          <label>Username:</label>
+          <label htmlFor="Username">Username:</label>
           <input className="form-control" type="text" name="username" placeholder="Enter username" value={username} onChange={this.handleChange}/>
-          <label>Password:</label>
-          <input className="form-control"  type="password" name="password"  placeholder="Enter password" value={password} onChange={this.handleChange}/>
-          <button className="btn btn-outline" type="submit" value="login">Log in</button>
+          <label htmlFor="Password">Password:</label>
+          <input className="form-control" type="password" name="password"  placeholder="Enter password" value={password} onChange={this.handleChange}/>
+          <button className="btn btn-outline mx-3" type="submit" value="login">Log in</button>
         </form>
-        </div> 
-        <p>{this.state.alert}</p>
-        <p>Not registered?
-          <Link to={"/signup"}>Sign up</Link>
-        </p>
-        </div>
+      </div> 
+        <p>{this.state.alert}</p>    
+        <p>Not registered?</p>
+        <Link to={"/signup"}>Sign up</Link>
+          </div>
     )
   }
 }

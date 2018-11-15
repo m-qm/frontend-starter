@@ -22,7 +22,7 @@ class PlaylistService {
   }
 
   listOnePlaylist(id) {
-    return this.playlistService.get(`/playlist/${id}`)
+    return this.playlistService.get(`/playlist/${id}/playlistdetail`)
       .then(({ data }) => data);
   }
 

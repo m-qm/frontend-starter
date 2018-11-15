@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import playlistService from '../lib/playlistservice';
-// import PlaylistCard from '../components/Card';
-// import EditPlaylist from './EditPlaylist';
+import PlaylistCard from '../components/Card';
 
 class PlaylistDetail extends Component {
   
@@ -10,52 +9,60 @@ class PlaylistDetail extends Component {
     data: []
   }
 
-    iframe = () => {
-    const { data } = this.props;
-    return { __html: data.link }
+
+state = {
+    playlist: "",
+    id: "",
+    isFavorite: this.props.playlist.favorite,
+    styles: ""
   }
 
-  componentDidMount(){
-    this.update();
+  iframe = () => {
+    const { playlist } = this.props;
+    return { __html: playlist.link }
   }
 
-  update = () => {
-    this.setState({
-      isLoading: true,
-    });
+  getSinglePlaylist = (e) => {
+    const id = this.props.playlist._id
+    this.props.history.push(`/playlist/${id}`)
+  }
 
-    const id = this.props.match.params.id
-    playlistService.listOnePlaylist(id)
-    .then((data) => {
-      console.log("data", data)
-      this.setState({
-        data: data,
-        isLoading: false
+  deletePlaylist = (e) => {
+    const id = this.props.playlist._id
+    console.log(id);
+    
+    playlistService.delete(id)
+      .then((result) => {
+        console.log("delete", result);
+        this.props.onDelete();
       })
-    })
-    .catch((error) => {
-      console.log(error);
-    })
+      .catch((error) => {
+        console.log(error)
+      })
   }
 
-  handleDelete = () => {
-    this.update()
+  addToFavorites = (e) => {
+    const id = this.props.playlist._id
+
+    playlistService.favorites(id)
+    .then((result) => {
+      console.log("added to favorites", result);
+    })
+
   }
-
-  render(){
-    // const { isLoading } = this.state;
-
-    return(
-      <div className="container">
-        <h1>{this.state.data.title}</h1>
-        <div className="video-container">
-            <i>{this.state.data.link}</i>
-            <p>{this.state.data.styles}</p>
-            <Link to={'/playlist'}>Back to playlists</Link>
-          </div>
-        </div>
-    )
+ 
+ 
+  render() {
+    const { playlist , isLoading } = this.state;
+    return (
+      <div className="container text-center justify-content-center row">
+        <h1>Playlist Info:</h1>
+        { isLoading ? <h1>Loading....</h1> : playlist.map((playlist) => {
+          return <PlaylistCard key={playlist._id} playlist={playlist} onDelete={this.handleDelete} onAdd={this.addToFavorites}/>
+        })}
+      </div>
+    );
   }
 }
 
-export default PlaylistDetail;
+export default withRouter(PlaylistDetail);
